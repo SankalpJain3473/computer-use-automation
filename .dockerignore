@@ -1,0 +1,11 @@
+node_modules
+.git
+.github
+.env
+.keys.json
+.claude
+.test-evidence
+docs
+*.log
+*.pdf
+evidence/**/*.png

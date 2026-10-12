@@ -9,13 +9,19 @@ with no model in the loop. AI agents call it by name through a typed API, and
 a person can take over the live session whenever a step needs human judgment.
 
 The design write-up is **[REPORT.md](REPORT.md)**; what each evidence folder
-proves is in **[evidence/README.md](evidence/README.md)**.
+proves is in **[evidence/README.md](evidence/README.md)**. A longer illustrated
+walkthrough of requirements, design, results and every case is in
+**[docs/overview.pdf](docs/overview.pdf)**.
 
 ```
 goal ─▶ LLM discovery ─▶ artifact (draft) ─▶ stability runs ─▶ approval ─▶ agents invoke it by name
                               │                    │                               │
                          typed contract     confidence score        pauses for a human on irreversible steps
 ```
+
+| Operator takeover: a supervisor-only step on the live session | Control center: capabilities, reliability, inbox, runs |
+|---|---|
+| ![Operator console](evidence/ui/operator-console-supervisor-task.png) | ![Control center](evidence/ui/control-center-inbox.png) |
 
 ## Setup
 
@@ -208,6 +214,32 @@ retry-exhausted escalation, rehearsal, human confirm and decline on the same
 session, intervention timeout, sign-in and roles, version serving, the
 approval gate, idempotency, capacity limits, and input validation. Unit tests cover the run state machine, reliability
 scoring, artifact contract checks, and redaction.
+
+CI runs all of the above plus the scenario catalog on every push, then builds
+the deploy image, starts it, and invokes a capability through it.
+
+## Hosted demo
+
+The `Dockerfile` runs the bank app and the capability server in one container
+(Playwright's image, so Chromium is included). Only the server's port is
+exposed. On a non-loopback host it refuses to start without
+`AGENT_API_KEY` and `OPERATOR_API_KEY`, so keys are never generated where
+nobody can read them.
+
+Every push to `main` deploys to a free Hugging Face Space
+(`.github/workflows/deploy.yml`). One-time setup:
+
+1. Create a Space at huggingface.co/new-space with SDK **Docker** (blank template).
+2. In the Space's **Settings → Variables and secrets**, add the secrets
+   `OPERATOR_API_KEY` and `AGENT_API_KEY` (any long random strings).
+3. In this GitHub repo's **Settings → Secrets and variables → Actions**, add the
+   secret `HF_TOKEN` (a Hugging Face token with write access) and the variable
+   `HF_SPACE` (`<hf-username>/<space-name>`).
+
+Open the Space at `https://<hf-username>-<space-name>.hf.space` (the direct
+URL, not the embedded page, so the sign-in cookie works) and sign in with the
+operator key. Discovery isn't run there; it needs an LLM key and is shown by
+the evidence in this repo.
 
 ## Layout
 

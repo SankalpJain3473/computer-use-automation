@@ -42,6 +42,25 @@ jobs:
       - name: Scenario catalog
         run: npm run scenarios
 
+      - name: Build the deploy image
+        run: docker build -t computer-use-automation .
+
+      - name: Smoke-test the deploy image
+        run: |
+          docker run -d --name app -p 7860:7860 -e AGENT_API_KEY=ci-agent -e OPERATOR_API_KEY=ci-operator computer-use-automation
+          for i in $(seq 1 60); do
+            if curl -sf -H "Authorization: Bearer ci-agent" http://localhost:7860/api/capabilities > /dev/null; then
+              curl -sf -H "Authorization: Bearer ci-agent" -H "Content-Type: application/json" \
+                -d '{"params":{"memberId":"12345"}}' \
+                http://localhost:7860/api/capabilities/lookup_member_balance/invoke | tee result.json
+              grep -q '"COMPLETED"' result.json && exit 0
+              break
+            fi
+            sleep 2
+          done
+          docker logs app
+          exit 1
+
       - name: Upload scenario report
         if: always()
         uses: actions/upload-artifact@v4

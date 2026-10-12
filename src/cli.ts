@@ -334,9 +334,14 @@ function cmdApprove(args: Record<string, string>) {
 async function cmdServer() {
   let browser: Browser | undefined;
   const getBrowser = async () => (browser ??= await chromium.launch({ headless: headless() }));
+  const host = process.env.HOST ?? "127.0.0.1";
+  if (host !== "127.0.0.1" && host !== "localhost" && !(process.env.AGENT_API_KEY && process.env.OPERATOR_API_KEY)) {
+    fail(`Listening on ${host} needs AGENT_API_KEY and OPERATOR_API_KEY set; generated keys would be unknown to anyone signing in.`);
+    process.exit(1);
+  }
   loadKeys();
   const { app } = createCapabilityApp(getBrowser);
-  const server = app.listen(SERVER_PORT, "127.0.0.1", () => {
+  const server = app.listen(SERVER_PORT, host, () => {
     console.log(`Control center: http://localhost:${SERVER_PORT} (sign in with the operator key in .keys.json)`);
     console.log(`Agent API:      http://localhost:${SERVER_PORT}/api (Authorization: Bearer <agent key>)`);
   });
