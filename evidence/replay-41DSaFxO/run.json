@@ -1,0 +1,62 @@
+{
+  "runId": "41DSaFxO",
+  "kind": "replay",
+  "capability": "lookup_member_balance",
+  "version": 1,
+  "mode": "live",
+  "invokedBy": "cli",
+  "params": {
+    "memberId": "*0000"
+  },
+  "state": "BUSINESS_OUTCOME",
+  "controller": "automation",
+  "transitions": [
+    {
+      "from": null,
+      "to": "INITIALIZED",
+      "at": "2026-10-10T20:17:56.444Z"
+    },
+    {
+      "from": "INITIALIZED",
+      "to": "RUNNING",
+      "at": "2026-10-10T20:17:56.575Z"
+    },
+    {
+      "from": "RUNNING",
+      "to": "BUSINESS_OUTCOME",
+      "at": "2026-10-10T20:17:57.171Z",
+      "reason": "PERMISSION_DENIED"
+    }
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "type": "fill",
+      "startedAt": "2026-10-10T20:17:56.580Z",
+      "durationMs": 11
+    },
+    {
+      "index": 1,
+      "type": "click",
+      "startedAt": "2026-10-10T20:17:56.591Z",
+      "durationMs": 549
+    },
+    {
+      "index": 2,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-10T20:17:57.141Z"
+    }
+  ],
+  "interventions": [],
+  "startedAt": "2026-10-10T20:17:56.444Z",
+  "evidenceDir": "/Users/sankalpjain/Desktop/interface/evidence/replay-41DSaFxO",
+  "phase": "core",
+  "result": {
+    "status": "business_outcome",
+    "code": "PERMISSION_DENIED",
+    "description": "This teller role is not authorized to view a restricted member",
+    "stepsExecuted": 3
+  },
+  "endedAt": "2026-10-10T20:17:57.171Z",
+  "durationMs": 727
+}

@@ -1,0 +1,5 @@
+{"ts":"2026-10-11T05:05:20.129Z","event":"replay.start","capability":"lookup_member_balance","version":3,"params":{"memberId":"*2345"}}
+{"ts":"2026-10-11T05:05:20.244Z","event":"replay.phase","phase":"pre","mode":"live"}
+{"ts":"2026-10-11T05:05:20.244Z","event":"replay.phase","phase":"core"}
+{"ts":"2026-10-11T05:05:20.244Z","event":"replay.step.start","stepIndex":0,"type":"navigate","description":"tampered step"}
+{"ts":"2026-10-11T05:05:20.245Z","event":"replay.guardrail_blocked","stepIndex":0,"code":"ORIGIN_NOT_ALLOWED","message":"Origin https://example.com is not in the allowlist (http://localhost:4173, http://localhost:4198, http://localhost:4199)"}

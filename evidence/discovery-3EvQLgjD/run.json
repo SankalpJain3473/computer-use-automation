@@ -1,0 +1,66 @@
+{
+  "runId": "3EvQLgjD",
+  "kind": "discovery",
+  "capability": "lookup_member_balance",
+  "mode": "discovery",
+  "invokedBy": "cli",
+  "params": {
+    "memberId": "*2345"
+  },
+  "state": "COMPLETED",
+  "controller": "automation",
+  "transitions": [
+    {
+      "from": null,
+      "to": "INITIALIZED",
+      "at": "2026-10-10T19:41:31.016Z"
+    },
+    {
+      "from": "INITIALIZED",
+      "to": "RUNNING",
+      "at": "2026-10-10T19:41:31.475Z"
+    },
+    {
+      "from": "RUNNING",
+      "to": "COMPLETED",
+      "at": "2026-10-10T19:41:38.203Z"
+    }
+  ],
+  "steps": [
+    {
+      "index": 1,
+      "type": "fill",
+      "startedAt": "2026-10-10T19:41:32.668Z"
+    },
+    {
+      "index": 2,
+      "type": "click",
+      "startedAt": "2026-10-10T19:41:33.256Z"
+    },
+    {
+      "index": 3,
+      "type": "extract_by_label",
+      "startedAt": "2026-10-10T19:41:35.402Z"
+    },
+    {
+      "index": 4,
+      "type": "extract_by_label",
+      "startedAt": "2026-10-10T19:41:35.937Z"
+    },
+    {
+      "index": 6,
+      "type": "finish",
+      "startedAt": "2026-10-10T19:41:38.166Z"
+    }
+  ],
+  "interventions": [],
+  "startedAt": "2026-10-10T19:41:31.016Z",
+  "evidenceDir": "/Users/sankalpjain/Desktop/interface/evidence/discovery-3EvQLgjD",
+  "result": {
+    "status": "discovery_finished",
+    "success": true,
+    "summary": "Successfully looked up member *2345 (Jordan Alvarez) and confirmed their current balances: Savings Balance $4,823.10 and Checking Balance $1,210.55."
+  },
+  "endedAt": "2026-10-10T19:41:38.203Z",
+  "durationMs": 7187
+}

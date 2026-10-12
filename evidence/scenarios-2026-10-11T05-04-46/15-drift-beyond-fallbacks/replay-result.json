@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "stepIndex": 3,
+  "stepDescription": "Extract member {{memberId}}'s savings balance",
+  "expected": "exactly one match for the recorded locator strategies",
+  "observed": "[{\"strategy\":{\"kind\":\"tableCellByRowLabel\",\"labelText\":\"Savings Balance\"},\"matchCount\":0}]",
+  "errorCode": "LOCATOR_NOT_FOUND",
+  "message": "Could not uniquely resolve locator after trying 1 strategies"
+}

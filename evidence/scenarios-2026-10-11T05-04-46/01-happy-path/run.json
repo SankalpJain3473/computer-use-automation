@@ -1,0 +1,76 @@
+{
+  "runId": "3dFWSwBa",
+  "kind": "replay",
+  "capability": "lookup_member_balance",
+  "version": 3,
+  "mode": "live",
+  "invokedBy": "scenario",
+  "params": {
+    "memberId": "*2345"
+  },
+  "state": "COMPLETED",
+  "controller": "automation",
+  "transitions": [
+    {
+      "from": null,
+      "to": "INITIALIZED",
+      "at": "2026-10-11T05:04:46.737Z"
+    },
+    {
+      "from": "INITIALIZED",
+      "to": "RUNNING",
+      "at": "2026-10-11T05:04:46.879Z"
+    },
+    {
+      "from": "RUNNING",
+      "to": "COMPLETED",
+      "at": "2026-10-11T05:04:47.502Z"
+    }
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "type": "fill",
+      "startedAt": "2026-10-11T05:04:46.884Z",
+      "durationMs": 11
+    },
+    {
+      "index": 1,
+      "type": "click",
+      "startedAt": "2026-10-11T05:04:46.895Z",
+      "durationMs": 546
+    },
+    {
+      "index": 2,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-11T05:04:47.442Z",
+      "durationMs": 20
+    },
+    {
+      "index": 3,
+      "type": "extract",
+      "startedAt": "2026-10-11T05:04:47.463Z",
+      "durationMs": 5
+    },
+    {
+      "index": 4,
+      "type": "extract",
+      "startedAt": "2026-10-11T05:04:47.468Z",
+      "durationMs": 3
+    }
+  ],
+  "interventions": [],
+  "startedAt": "2026-10-11T05:04:46.737Z",
+  "evidenceDir": "/Users/sankalpjain/Desktop/interface/evidence/scenarios-2026-10-11T05-04-46/01-happy-path",
+  "phase": "post",
+  "result": {
+    "status": "success",
+    "outputs": {
+      "savings_balance": "$4,823.10",
+      "checking_balance": "$1,210.55"
+    },
+    "stepsExecuted": 5
+  },
+  "endedAt": "2026-10-11T05:04:47.502Z",
+  "durationMs": 765
+}

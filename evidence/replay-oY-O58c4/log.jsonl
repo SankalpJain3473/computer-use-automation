@@ -1,0 +1,8 @@
+{"ts":"2026-09-27T20:31:16.232Z","event":"replay.start","capability":"open_member_subaccount","version":1,"params":{"memberId":"*9999","initialDeposit":"50.00"}}
+{"ts":"2026-09-27T20:31:16.713Z","event":"operator.available","url":"http://localhost:4174"}
+{"ts":"2026-09-27T20:31:16.714Z","event":"replay.step.start","stepIndex":0,"type":"fill","description":"Enter member ID *3456 to look up the member"}
+{"ts":"2026-09-27T20:31:16.726Z","event":"replay.step.ok","stepIndex":0}
+{"ts":"2026-09-27T20:31:16.726Z","event":"replay.step.start","stepIndex":1,"type":"click","description":"Click Look Up Member to search"}
+{"ts":"2026-09-27T20:31:17.280Z","event":"replay.step.ok","stepIndex":1}
+{"ts":"2026-09-27T20:31:17.280Z","event":"replay.step.start","stepIndex":2,"type":"checkOutcomes","description":"Distinguish a normal member record from known non-happy-path outcomes"}
+{"ts":"2026-09-27T20:31:17.281Z","event":"replay.business_outcome","stepIndex":2,"code":"MEMBER_NOT_FOUND"}

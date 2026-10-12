@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "id": "lookup_member_balance-3EvQLgjD-r2",
+  "name": "lookup_member_balance",
+  "version": 2,
+  "description": "Look up a member by ID and read their current savings and checking balances.",
+  "riskLevel": "safe",
+  "target": {
+    "appName": "Meridian Teller Console",
+    "allowedOrigin": "http://localhost:4173",
+    "entryPathTemplate": "/members/search"
+  },
+  "inputParams": [
+    {
+      "name": "memberId",
+      "type": "string",
+      "description": "The member ID to look up",
+      "required": true,
+      "pattern": "^\\d+$",
+      "sensitive": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "savings_balance",
+      "type": "string",
+      "description": "Current savings balance, formatted as currency"
+    },
+    {
+      "name": "checking_balance",
+      "type": "string",
+      "description": "Current checking balance, formatted as currency"
+    }
+  ],
+  "successCheckpoint": {
+    "kind": "urlMatches",
+    "pattern": "^http://localhost:4173/members/[^/]+$"
+  },
+  "steps": [
+    {
+      "type": "fill",
+      "target": {
+        "strategies": [
+          {
+            "kind": "role",
+            "role": "textbox",
+            "name": "Member ID",
+            "exact": true
+          },
+          {
+            "kind": "formField",
+            "name": "memberId"
+          },
+          {
+            "kind": "css",
+            "selector": "body form:nth-of-type(1) > table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(1) > td:nth-of-type(2) > input:nth-of-type(1)"
+          }
+        ],
+        "rationale": "role+accessible name is stable across re-skins; form-field name attribute and css path kept as fallbacks"
+      },
+      "valueTemplate": "{{memberId}}",
+      "description": "Enter member ID {{memberId}} to look up their account"
+    },
+    {
+      "type": "click",
+      "target": {
+        "strategies": [
+          {
+            "kind": "role",
+            "role": "button",
+            "name": "Look Up Member",
+            "exact": true
+          },
+          {
+            "kind": "text",
+            "text": "Look Up Member",
+            "exact": true
+          },
+          {
+            "kind": "css",
+            "selector": "body form:nth-of-type(1) > table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(2) > td:nth-of-type(1) > input:nth-of-type(1)"
+          }
+        ],
+        "rationale": "role+accessible name is stable across re-skins; form-field name attribute and css path kept as fallbacks"
+      },
+      "description": "Click Look Up Member to retrieve member {{memberId}}'s account information"
+    },
+    {
+      "type": "checkOutcomes",
+      "outcomes": [
+        {
+          "code": "MEMBER_NOT_FOUND",
+          "category": "business_outcome",
+          "description": "No member record exists for the given ID",
+          "detect": {
+            "kind": "httpStatus",
+            "status": 404
+          }
+        },
+        {
+          "code": "PERMISSION_DENIED",
+          "category": "business_outcome",
+          "description": "This teller role is not authorized to view a restricted member",
+          "detect": {
+            "kind": "httpStatus",
+            "status": 403
+          }
+        },
+        {
+          "code": "CORE_TIMEOUT",
+          "category": "recoverable",
+          "description": "Core banking service timed out loading the member record",
+          "detect": {
+            "kind": "httpStatus",
+            "status": 504
+          },
+          "recovery": {
+            "action": "reload",
+            "maxAttempts": 2,
+            "waitMs": 1000
+          }
+        },
+        {
+          "code": "COMPLIANCE_NOTICE",
+          "category": "recoverable",
+          "description": "A compliance notice must be acknowledged before the record is shown",
+          "detect": {
+            "kind": "textVisible",
+            "text": "Compliance notice"
+          },
+          "recovery": {
+            "action": "dismiss",
+            "target": {
+              "strategies": [
+                {
+                  "kind": "role",
+                  "role": "button",
+                  "name": "Acknowledge and Continue",
+                  "exact": true
+                }
+              ]
+            },
+            "maxAttempts": 1,
+            "waitMs": 0
+          }
+        },
+        {
+          "code": "SESSION_EXPIRED",
+          "category": "failure",
+          "description": "Session expired mid-flow; caller should re-authenticate and retry the capability",
+          "detect": {
+            "kind": "httpStatus",
+            "status": 401
+          }
+        }
+      ],
+      "description": "Distinguish a normal member record from known non-happy-path outcomes"
+    },
+    {
+      "type": "extract",
+      "target": {
+        "strategies": [
+          {
+            "kind": "tableCellByRowLabel",
+            "labelText": "Savings Balance"
+          }
+        ]
+      },
+      "outputName": "savings_balance",
+      "transform": "trim",
+      "description": "Extract member {{memberId}}'s savings balance"
+    },
+    {
+      "type": "extract",
+      "target": {
+        "strategies": [
+          {
+            "kind": "tableCellByRowLabel",
+            "labelText": "Checking Balance"
+          }
+        ]
+      },
+      "outputName": "checking_balance",
+      "transform": "trim",
+      "description": "Extract member {{memberId}}'s checking balance"
+    }
+  ],
+  "provenance": {
+    "recordedAt": "2026-10-10T19:41:38.204Z",
+    "discoveryRunId": "3EvQLgjD",
+    "model": "cohere/north-mini-code:free",
+    "reviewedBy": "demo-reviewer",
+    "revisedFrom": 1,
+    "approval": {
+      "approvedAt": "2026-10-10T21:49:10.922Z",
+      "unattendedIrreversible": false,
+      "evidence": {
+        "runs": 10,
+        "confidence": 0.722,
+        "mode": "live"
+      }
+    }
+  }
+}

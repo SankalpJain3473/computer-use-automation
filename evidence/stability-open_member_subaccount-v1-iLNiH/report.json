@@ -1,0 +1,112 @@
+{
+  "artifact": "open_member_subaccount@v1",
+  "mode": "rehearsal",
+  "params": {
+    "memberId": "*2345",
+    "initialDeposit": "50.00"
+  },
+  "runs": [
+    {
+      "i": 1,
+      "runId": "0U2kh3lX",
+      "state": "COMPLETED",
+      "result": "rehearsal_complete",
+      "ms": 1902,
+      "drift": 0
+    },
+    {
+      "i": 2,
+      "runId": "zBcCbvXV",
+      "state": "COMPLETED",
+      "result": "rehearsal_complete",
+      "ms": 1867,
+      "drift": 0
+    },
+    {
+      "i": 3,
+      "runId": "GzopJj6r",
+      "state": "COMPLETED",
+      "result": "rehearsal_complete",
+      "ms": 1887,
+      "drift": 0
+    },
+    {
+      "i": 4,
+      "runId": "Ppnxqbcz",
+      "state": "COMPLETED",
+      "result": "rehearsal_complete",
+      "ms": 1898,
+      "drift": 0
+    },
+    {
+      "i": 5,
+      "runId": "1msEOG8t",
+      "state": "COMPLETED",
+      "result": "rehearsal_complete",
+      "ms": 1869,
+      "drift": 0
+    },
+    {
+      "i": 6,
+      "runId": "c8FJ_1Er",
+      "state": "COMPLETED",
+      "result": "rehearsal_complete",
+      "ms": 1864,
+      "drift": 0
+    },
+    {
+      "i": 7,
+      "runId": "X-kk5wYh",
+      "state": "COMPLETED",
+      "result": "rehearsal_complete",
+      "ms": 1867,
+      "drift": 0
+    },
+    {
+      "i": 8,
+      "runId": "3muCDadb",
+      "state": "COMPLETED",
+      "result": "rehearsal_complete",
+      "ms": 1898,
+      "drift": 0
+    },
+    {
+      "i": 9,
+      "runId": "gZAMmpZc",
+      "state": "COMPLETED",
+      "result": "rehearsal_complete",
+      "ms": 1869,
+      "drift": 0
+    },
+    {
+      "i": 10,
+      "runId": "1s2gp9Zt",
+      "state": "COMPLETED",
+      "result": "rehearsal_complete",
+      "ms": 1888,
+      "drift": 0
+    }
+  ],
+  "cumulative": {
+    "capability": "open_member_subaccount",
+    "version": 1,
+    "runs": 10,
+    "clean": 10,
+    "businessOutcomes": 0,
+    "assisted": 0,
+    "failures": 0,
+    "callerErrors": 0,
+    "rehearsals": 10,
+    "driftRuns": 0,
+    "successRate": 1,
+    "confidence": 0.7224598312333834,
+    "band": "green",
+    "p50Ms": 1869,
+    "p95Ms": 1902,
+    "lastRunAt": "2026-10-10T20:17:36.525Z"
+  },
+  "policy": {
+    "minRuns": 8,
+    "minConfidence": 0.7
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "status": "business_outcome",
+  "code": "MEMBER_NOT_FOUND",
+  "description": "No member record exists for the given ID",
+  "stepsExecuted": 3
+}

@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "stepIndex": 2,
+  "stepDescription": "Check the member record loaded",
+  "expected": "transient condition to clear after retry",
+  "observed": "Core banking service timed out loading the member record",
+  "errorCode": "RECOVERY_EXHAUSTED",
+  "message": "Recoverable condition \"CORE_TIMEOUT\" did not clear"
+}

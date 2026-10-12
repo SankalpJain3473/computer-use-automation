@@ -1,0 +1,62 @@
+{
+  "runId": "peH6jIt7",
+  "kind": "replay",
+  "capability": "lookup_member_balance",
+  "version": 3,
+  "mode": "live",
+  "invokedBy": "scenario",
+  "params": {
+    "memberId": "*9999"
+  },
+  "state": "BUSINESS_OUTCOME",
+  "controller": "automation",
+  "transitions": [
+    {
+      "from": null,
+      "to": "INITIALIZED",
+      "at": "2026-10-11T05:04:52.153Z"
+    },
+    {
+      "from": "INITIALIZED",
+      "to": "RUNNING",
+      "at": "2026-10-11T05:04:52.274Z"
+    },
+    {
+      "from": "RUNNING",
+      "to": "BUSINESS_OUTCOME",
+      "at": "2026-10-11T05:04:52.869Z",
+      "reason": "MEMBER_NOT_FOUND"
+    }
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "type": "fill",
+      "startedAt": "2026-10-11T05:04:52.278Z",
+      "durationMs": 10
+    },
+    {
+      "index": 1,
+      "type": "click",
+      "startedAt": "2026-10-11T05:04:52.288Z",
+      "durationMs": 549
+    },
+    {
+      "index": 2,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-11T05:04:52.838Z"
+    }
+  ],
+  "interventions": [],
+  "startedAt": "2026-10-11T05:04:52.153Z",
+  "evidenceDir": "/Users/sankalpjain/Desktop/interface/evidence/scenarios-2026-10-11T05-04-46/05-not-found",
+  "phase": "core",
+  "result": {
+    "status": "business_outcome",
+    "code": "MEMBER_NOT_FOUND",
+    "description": "No member record exists for the given ID",
+    "stepsExecuted": 3
+  },
+  "endedAt": "2026-10-11T05:04:52.869Z",
+  "durationMs": 716
+}

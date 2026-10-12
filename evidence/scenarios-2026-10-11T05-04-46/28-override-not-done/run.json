@@ -1,0 +1,113 @@
+{
+  "runId": "-yg28vxv",
+  "kind": "replay",
+  "capability": "open_member_subaccount",
+  "version": 2,
+  "mode": "live",
+  "invokedBy": "scenario",
+  "params": {
+    "memberId": "*3456",
+    "initialDeposit": "15000.00"
+  },
+  "state": "FAILED",
+  "controller": "automation",
+  "transitions": [
+    {
+      "from": null,
+      "to": "INITIALIZED",
+      "at": "2026-10-11T05:05:01.628Z"
+    },
+    {
+      "from": "INITIALIZED",
+      "to": "RUNNING",
+      "at": "2026-10-11T05:05:01.779Z"
+    },
+    {
+      "from": "RUNNING",
+      "to": "AWAITING_HUMAN",
+      "at": "2026-10-11T05:05:03.552Z",
+      "reason": "A deposit this large needs a supervisor's override. A supervisor must enter their override PIN on this page and click Approve Override. Automation never sees or stores the PIN."
+    },
+    {
+      "from": "AWAITING_HUMAN",
+      "to": "RUNNING",
+      "at": "2026-10-11T05:05:03.583Z",
+      "reason": "handed back to automation"
+    },
+    {
+      "from": "RUNNING",
+      "to": "FAILED",
+      "at": "2026-10-11T05:05:03.599Z",
+      "reason": "HUMAN_TASK_INCOMPLETE"
+    }
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "type": "fill",
+      "startedAt": "2026-10-11T05:05:01.783Z",
+      "durationMs": 11
+    },
+    {
+      "index": 1,
+      "type": "click",
+      "startedAt": "2026-10-11T05:05:01.794Z",
+      "durationMs": 548
+    },
+    {
+      "index": 2,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-11T05:05:02.343Z",
+      "durationMs": 19
+    },
+    {
+      "index": 3,
+      "type": "click",
+      "startedAt": "2026-10-11T05:05:02.363Z",
+      "durationMs": 540
+    },
+    {
+      "index": 4,
+      "type": "fill",
+      "startedAt": "2026-10-11T05:05:02.904Z",
+      "durationMs": 27
+    },
+    {
+      "index": 5,
+      "type": "click",
+      "startedAt": "2026-10-11T05:05:02.932Z",
+      "durationMs": 561
+    },
+    {
+      "index": 6,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-11T05:05:03.494Z"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "xaPY3MjJ",
+      "kind": "task",
+      "stepIndex": 6,
+      "reason": "A deposit this large needs a supervisor's override. A supervisor must enter their override PIN on this page and click Approve Override. Automation never sees or stores the PIN.",
+      "openedAt": "2026-10-11T05:05:03.551Z",
+      "humanActions": 0,
+      "resolvedAt": "2026-10-11T05:05:03.583Z",
+      "decision": "continue"
+    }
+  ],
+  "startedAt": "2026-10-11T05:05:01.628Z",
+  "evidenceDir": "/Users/sankalpjain/Desktop/interface/evidence/scenarios-2026-10-11T05-04-46/28-override-not-done",
+  "phase": "core",
+  "result": {
+    "status": "failure",
+    "stepIndex": 6,
+    "stepDescription": "Distinguish a validation error from a successful transition to the confirmation screen",
+    "expected": "happy path continuation",
+    "observed": "Control came back but \"SUPERVISOR_OVERRIDE\" still needs doing",
+    "errorCode": "HUMAN_TASK_INCOMPLETE",
+    "message": "Control came back but \"SUPERVISOR_OVERRIDE\" still needs doing"
+  },
+  "endedAt": "2026-10-11T05:05:03.599Z",
+  "durationMs": 1971
+}

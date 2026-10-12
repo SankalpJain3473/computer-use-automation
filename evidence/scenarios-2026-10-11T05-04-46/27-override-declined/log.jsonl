@@ -1,0 +1,22 @@
+{"ts":"2026-10-11T05:04:59.647Z","event":"replay.start","capability":"open_member_subaccount","version":2,"params":{"memberId":"*3456","initialDeposit":"15000.00"}}
+{"ts":"2026-10-11T05:04:59.766Z","event":"replay.phase","phase":"pre","mode":"live"}
+{"ts":"2026-10-11T05:04:59.769Z","event":"replay.entry","url":"http://localhost:4173/members/search","status":200}
+{"ts":"2026-10-11T05:04:59.769Z","event":"replay.phase","phase":"core"}
+{"ts":"2026-10-11T05:04:59.770Z","event":"replay.step.start","stepIndex":0,"type":"fill","description":"Enter member ID {{memberId}} to look up the member"}
+{"ts":"2026-10-11T05:04:59.780Z","event":"replay.step.ok","stepIndex":0}
+{"ts":"2026-10-11T05:04:59.780Z","event":"replay.step.start","stepIndex":1,"type":"click","description":"Click Look Up Member to search"}
+{"ts":"2026-10-11T05:05:00.327Z","event":"replay.step.ok","stepIndex":1}
+{"ts":"2026-10-11T05:05:00.329Z","event":"replay.step.start","stepIndex":2,"type":"checkOutcomes","description":"Distinguish a normal member record from known non-happy-path outcomes"}
+{"ts":"2026-10-11T05:05:00.347Z","event":"replay.step.ok","stepIndex":2}
+{"ts":"2026-10-11T05:05:00.347Z","event":"replay.step.start","stepIndex":3,"type":"click","description":"Open a new sub-account for this member"}
+{"ts":"2026-10-11T05:05:00.887Z","event":"replay.step.ok","stepIndex":3}
+{"ts":"2026-10-11T05:05:00.888Z","event":"replay.step.start","stepIndex":4,"type":"fill","description":"Enter initial deposit of ${{initialDeposit}}"}
+{"ts":"2026-10-11T05:05:00.915Z","event":"replay.step.ok","stepIndex":4}
+{"ts":"2026-10-11T05:05:00.915Z","event":"replay.step.start","stepIndex":5,"type":"click","description":"Click Continue to proceed"}
+{"ts":"2026-10-11T05:05:01.478Z","event":"replay.step.ok","stepIndex":5}
+{"ts":"2026-10-11T05:05:01.479Z","event":"replay.step.start","stepIndex":6,"type":"checkOutcomes","description":"Distinguish a validation error from a successful transition to the confirmation screen"}
+{"ts":"2026-10-11T05:05:01.499Z","event":"replay.human_task","stepIndex":6,"code":"SUPERVISOR_OVERRIDE"}
+{"ts":"2026-10-11T05:05:01.539Z","event":"intervention.requested","id":"AOzg6hwQ","runId":"TZ-DV0Yp","kind":"task","createdAt":"2026-10-11T05:05:01.539Z","timeoutAt":"2026-10-11T05:20:01.539Z","status":"open","capabilityName":"open_member_subaccount","goal":"Replay of open_member_subaccount","stepIndex":6,"reason":"A deposit this large needs a supervisor's override. A supervisor must enter their override PIN on this page and click Approve Override. Automation never sees or stores the PIN.","screenshotFile":"/Users/sankalpjain/Desktop/interface/evidence/scenarios-2026-10-11T05-04-46/27-override-declined/intervention-6.png","humanActions":[]}
+{"ts":"2026-10-11T05:05:01.591Z","event":"intervention.resumed","id":"AOzg6hwQ","decision":"decline"}
+{"ts":"2026-10-11T05:05:01.592Z","event":"replay.human_task_not_done","stepIndex":6,"code":"SUPERVISOR_OVERRIDE","decision":"decline"}
+{"ts":"2026-10-11T05:05:01.592Z","event":"replay.business_outcome","stepIndex":6,"code":"DECLINED_BY_OPERATOR"}

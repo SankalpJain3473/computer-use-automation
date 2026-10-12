@@ -1,0 +1,111 @@
+{
+  "artifact": "lookup_member_balance@v1",
+  "mode": "live",
+  "params": {
+    "memberId": "*2345"
+  },
+  "runs": [
+    {
+      "i": 1,
+      "runId": "l2hwtA3f",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 751,
+      "drift": 0
+    },
+    {
+      "i": 2,
+      "runId": "v1NM9E06",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 726,
+      "drift": 0
+    },
+    {
+      "i": 3,
+      "runId": "8300y_YV",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 729,
+      "drift": 0
+    },
+    {
+      "i": 4,
+      "runId": "xbPJHWJV",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 727,
+      "drift": 0
+    },
+    {
+      "i": 5,
+      "runId": "bF2Kw4jd",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 728,
+      "drift": 0
+    },
+    {
+      "i": 6,
+      "runId": "vrQ96XSM",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 733,
+      "drift": 0
+    },
+    {
+      "i": 7,
+      "runId": "0Fa62nkz",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 736,
+      "drift": 0
+    },
+    {
+      "i": 8,
+      "runId": "naCWL7oA",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 728,
+      "drift": 0
+    },
+    {
+      "i": 9,
+      "runId": "8HgTsXUZ",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 730,
+      "drift": 0
+    },
+    {
+      "i": 10,
+      "runId": "5kuEsXL9",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 729,
+      "drift": 0
+    }
+  ],
+  "cumulative": {
+    "capability": "lookup_member_balance",
+    "version": 1,
+    "runs": 10,
+    "clean": 10,
+    "businessOutcomes": 0,
+    "assisted": 0,
+    "failures": 0,
+    "callerErrors": 0,
+    "rehearsals": 0,
+    "driftRuns": 0,
+    "successRate": 1,
+    "confidence": 0.7224598312333834,
+    "band": "green",
+    "p50Ms": 729,
+    "p95Ms": 751,
+    "lastRunAt": "2026-10-10T20:17:07.382Z"
+  },
+  "policy": {
+    "minRuns": 8,
+    "minConfidence": 0.7
+  }
+}

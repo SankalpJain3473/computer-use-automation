@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "stepIndex": 0,
+  "stepDescription": "tampered step",
+  "expected": "an action inside the allowlist",
+  "observed": "Origin https://example.com is not in the allowlist (http://localhost:4173, http://localhost:4198, http://localhost:4199)",
+  "errorCode": "ORIGIN_NOT_ALLOWED",
+  "message": "Blocked by guardrail: Origin https://example.com is not in the allowlist (http://localhost:4173, http://localhost:4198, http://localhost:4199)"
+}

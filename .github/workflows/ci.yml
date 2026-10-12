@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Type-check
+        run: npm run typecheck
+
+      - name: Tests
+        run: npm test
+
+      - name: Start the target app
+        run: |
+          npm run target-app > target-app.log 2>&1 &
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:4173/login > /dev/null && exit 0
+            sleep 1
+          done
+          cat target-app.log
+          exit 1
+
+      - name: Scenario catalog
+        run: npm run scenarios
+
+      - name: Upload scenario report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scenario-report
+          path: |
+            evidence/scenarios-*/
+            target-app.log
+          if-no-files-found: ignore

@@ -1,0 +1,119 @@
+{
+  "runId": "9Txpgzn1",
+  "kind": "replay",
+  "capability": "open_member_subaccount",
+  "version": 2,
+  "mode": "live",
+  "invokedBy": "scenario",
+  "params": {
+    "memberId": "*2345",
+    "initialDeposit": "40.00"
+  },
+  "state": "FAILED",
+  "controller": "automation",
+  "transitions": [
+    {
+      "from": null,
+      "to": "INITIALIZED",
+      "at": "2026-10-11T05:05:03.603Z"
+    },
+    {
+      "from": "INITIALIZED",
+      "to": "RUNNING",
+      "at": "2026-10-11T05:05:03.770Z"
+    },
+    {
+      "from": "RUNNING",
+      "to": "AWAITING_HUMAN",
+      "at": "2026-10-11T05:05:05.563Z",
+      "reason": "Irreversible step requires human confirmation: Confirm opening the new sub-account - irreversible from this screen"
+    },
+    {
+      "from": "AWAITING_HUMAN",
+      "to": "RUNNING",
+      "at": "2026-10-11T05:05:07.566Z",
+      "reason": "no operator response"
+    },
+    {
+      "from": "RUNNING",
+      "to": "FAILED",
+      "at": "2026-10-11T05:05:07.607Z",
+      "reason": "OPERATOR_TIMEOUT"
+    }
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "type": "fill",
+      "startedAt": "2026-10-11T05:05:03.779Z",
+      "durationMs": 15
+    },
+    {
+      "index": 1,
+      "type": "click",
+      "startedAt": "2026-10-11T05:05:03.794Z",
+      "durationMs": 560
+    },
+    {
+      "index": 2,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-11T05:05:04.355Z",
+      "durationMs": 18
+    },
+    {
+      "index": 3,
+      "type": "click",
+      "startedAt": "2026-10-11T05:05:04.373Z",
+      "durationMs": 544
+    },
+    {
+      "index": 4,
+      "type": "fill",
+      "startedAt": "2026-10-11T05:05:04.918Z",
+      "durationMs": 25
+    },
+    {
+      "index": 5,
+      "type": "click",
+      "startedAt": "2026-10-11T05:05:04.944Z",
+      "durationMs": 560
+    },
+    {
+      "index": 6,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-11T05:05:05.506Z",
+      "durationMs": 20
+    },
+    {
+      "index": 7,
+      "type": "confirmIrreversible",
+      "startedAt": "2026-10-11T05:05:05.527Z"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "VBcjPXUW",
+      "kind": "policy",
+      "stepIndex": 7,
+      "reason": "Irreversible step requires human confirmation: Confirm opening the new sub-account - irreversible from this screen",
+      "openedAt": "2026-10-11T05:05:05.563Z",
+      "humanActions": 0,
+      "resolvedAt": "2026-10-11T05:05:07.566Z",
+      "decision": "timeout"
+    }
+  ],
+  "startedAt": "2026-10-11T05:05:03.603Z",
+  "evidenceDir": "/Users/sankalpjain/Desktop/interface/evidence/scenarios-2026-10-11T05-04-46/29-no-operator-response",
+  "phase": "core",
+  "result": {
+    "status": "failure",
+    "stepIndex": 7,
+    "stepDescription": "Confirm opening the new sub-account - irreversible from this screen",
+    "expected": "an operator to confirm or decline",
+    "observed": "no operator responded in time; nothing was confirmed",
+    "errorCode": "OPERATOR_TIMEOUT",
+    "message": "no operator responded in time; nothing was confirmed"
+  },
+  "endedAt": "2026-10-11T05:05:07.607Z",
+  "durationMs": 4004
+}

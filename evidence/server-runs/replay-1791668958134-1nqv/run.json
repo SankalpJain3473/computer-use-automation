@@ -1,0 +1,62 @@
+{
+  "runId": "e1apnLcW",
+  "kind": "replay",
+  "capability": "lookup_member_balance",
+  "version": 2,
+  "mode": "live",
+  "invokedBy": "agent",
+  "params": {
+    "memberId": "*9999"
+  },
+  "state": "BUSINESS_OUTCOME",
+  "controller": "automation",
+  "transitions": [
+    {
+      "from": null,
+      "to": "INITIALIZED",
+      "at": "2026-10-10T21:49:18.134Z"
+    },
+    {
+      "from": "INITIALIZED",
+      "to": "RUNNING",
+      "at": "2026-10-10T21:49:18.255Z"
+    },
+    {
+      "from": "RUNNING",
+      "to": "BUSINESS_OUTCOME",
+      "at": "2026-10-10T21:49:18.849Z",
+      "reason": "MEMBER_NOT_FOUND"
+    }
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "type": "fill",
+      "startedAt": "2026-10-10T21:49:18.259Z",
+      "durationMs": 10
+    },
+    {
+      "index": 1,
+      "type": "click",
+      "startedAt": "2026-10-10T21:49:18.269Z",
+      "durationMs": 548
+    },
+    {
+      "index": 2,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-10T21:49:18.817Z"
+    }
+  ],
+  "interventions": [],
+  "startedAt": "2026-10-10T21:49:18.134Z",
+  "evidenceDir": "/Users/sankalpjain/Desktop/interface/evidence/server-runs/replay-*********81341nqv",
+  "phase": "core",
+  "result": {
+    "status": "business_outcome",
+    "code": "MEMBER_NOT_FOUND",
+    "description": "No member record exists for the given ID",
+    "stepsExecuted": 3
+  },
+  "endedAt": "2026-10-10T21:49:18.849Z",
+  "durationMs": 715
+}

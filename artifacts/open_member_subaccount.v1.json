@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "id": "open_member_subaccount-Nl9NaQHl",
+  "name": "open_member_subaccount",
+  "version": 1,
+  "description": "Open a new sub-account for an existing member with a specified initial deposit, and reach the confirmation/success screen.",
+  "riskLevel": "risky",
+  "target": {
+    "appName": "Meridian Teller Console",
+    "allowedOrigin": "http://localhost:4173",
+    "entryPathTemplate": "/members/search"
+  },
+  "inputParams": [
+    {
+      "name": "memberId",
+      "type": "string",
+      "description": "The member ID to open the sub-account for",
+      "required": true,
+      "pattern": "^\\d+$"
+    },
+    {
+      "name": "initialDeposit",
+      "type": "string",
+      "description": "Initial deposit amount in USD, e.g. \"50.00\"",
+      "required": true,
+      "pattern": "^\\d+(\\.\\d{1,2})?$"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "new_account_number",
+      "type": "string",
+      "description": "The newly created sub-account's account number"
+    }
+  ],
+  "successCheckpoint": {
+    "kind": "textVisible",
+    "text": "New Account Number"
+  },
+  "steps": [
+    {
+      "type": "fill",
+      "target": {
+        "strategies": [
+          {
+            "kind": "role",
+            "role": "textbox",
+            "name": "Member ID",
+            "exact": true
+          },
+          {
+            "kind": "formField",
+            "name": "memberId"
+          },
+          {
+            "kind": "css",
+            "selector": "body form:nth-of-type(1) > table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(1) > td:nth-of-type(2) > input:nth-of-type(1)"
+          }
+        ],
+        "rationale": "role+accessible name is stable across re-skins; form-field name attribute and css path kept as fallbacks"
+      },
+      "valueTemplate": "{{memberId}}",
+      "description": "Enter member ID {{memberId}} to look up the member"
+    },
+    {
+      "type": "click",
+      "target": {
+        "strategies": [
+          {
+            "kind": "role",
+            "role": "button",
+            "name": "Look Up Member",
+            "exact": true
+          },
+          {
+            "kind": "text",
+            "text": "Look Up Member",
+            "exact": true
+          },
+          {
+            "kind": "css",
+            "selector": "body form:nth-of-type(1) > table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(2) > td:nth-of-type(1) > input:nth-of-type(1)"
+          }
+        ],
+        "rationale": "role+accessible name is stable across re-skins; form-field name attribute and css path kept as fallbacks"
+      },
+      "description": "Click Look Up Member to search"
+    },
+    {
+      "type": "checkOutcomes",
+      "outcomes": [
+        {
+          "code": "MEMBER_NOT_FOUND",
+          "category": "business_outcome",
+          "description": "No member record exists for the given ID",
+          "detect": {
+            "kind": "httpStatus",
+            "status": 404
+          }
+        },
+        {
+          "code": "PERMISSION_DENIED",
+          "category": "business_outcome",
+          "description": "This teller role is not authorized to view a restricted member",
+          "detect": {
+            "kind": "httpStatus",
+            "status": 403
+          }
+        },
+        {
+          "code": "CORE_TIMEOUT",
+          "category": "recoverable",
+          "description": "Core banking service timed out loading the member record",
+          "detect": {
+            "kind": "httpStatus",
+            "status": 504
+          },
+          "recovery": {
+            "action": "reload",
+            "maxAttempts": 2,
+            "waitMs": 1000
+          }
+        },
+        {
+          "code": "SESSION_EXPIRED",
+          "category": "failure",
+          "description": "Session expired mid-flow; caller should re-authenticate and retry the capability",
+          "detect": {
+            "kind": "httpStatus",
+            "status": 401
+          }
+        }
+      ],
+      "description": "Distinguish a normal member record from known non-happy-path outcomes"
+    },
+    {
+      "type": "click",
+      "target": {
+        "strategies": [
+          {
+            "kind": "role",
+            "role": "link",
+            "name": "Open New Sub-Account",
+            "exact": true
+          },
+          {
+            "kind": "text",
+            "text": "Open New Sub-Account",
+            "exact": true
+          },
+          {
+            "kind": "css",
+            "selector": "body a:nth-of-type(1)"
+          }
+        ],
+        "rationale": "role+accessible name is stable across re-skins; form-field name attribute and css path kept as fallbacks"
+      },
+      "description": "Open a new sub-account for this member"
+    },
+    {
+      "type": "fill",
+      "target": {
+        "strategies": [
+          {
+            "kind": "role",
+            "role": "textbox",
+            "name": "Initial Deposit (USD)",
+            "exact": true
+          },
+          {
+            "kind": "formField",
+            "name": "initialDeposit"
+          },
+          {
+            "kind": "css",
+            "selector": "body form:nth-of-type(1) > table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(2) > td:nth-of-type(2) > input:nth-of-type(1)"
+          }
+        ],
+        "rationale": "role+accessible name is stable across re-skins; form-field name attribute and css path kept as fallbacks"
+      },
+      "valueTemplate": "{{initialDeposit}}",
+      "description": "Enter initial deposit of ${{initialDeposit}}"
+    },
+    {
+      "type": "click",
+      "target": {
+        "strategies": [
+          {
+            "kind": "role",
+            "role": "button",
+            "name": "Continue",
+            "exact": true
+          },
+          {
+            "kind": "text",
+            "text": "Continue",
+            "exact": true
+          },
+          {
+            "kind": "css",
+            "selector": "body form:nth-of-type(1) > table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(3) > td:nth-of-type(1) > input:nth-of-type(1)"
+          }
+        ],
+        "rationale": "role+accessible name is stable across re-skins; form-field name attribute and css path kept as fallbacks"
+      },
+      "description": "Click Continue to proceed"
+    },
+    {
+      "type": "checkOutcomes",
+      "outcomes": [
+        {
+          "code": "VALIDATION_ERROR",
+          "category": "business_outcome",
+          "description": "Initial deposit did not meet the minimum required amount",
+          "detect": {
+            "kind": "httpStatus",
+            "status": 422
+          }
+        }
+      ],
+      "description": "Distinguish a validation error from a successful transition to the confirmation screen"
+    },
+    {
+      "type": "confirmIrreversible",
+      "target": {
+        "strategies": [
+          {
+            "kind": "role",
+            "role": "button",
+            "name": "Confirm and Open Account",
+            "exact": true
+          },
+          {
+            "kind": "text",
+            "text": "Confirm and Open Account",
+            "exact": true
+          },
+          {
+            "kind": "css",
+            "selector": "body form:nth-of-type(1) > input:nth-of-type(4)"
+          }
+        ],
+        "rationale": "role+accessible name is stable across re-skins; form-field name attribute and css path kept as fallbacks"
+      },
+      "description": "Confirm opening the new sub-account - irreversible from this screen"
+    },
+    {
+      "type": "extract",
+      "target": {
+        "strategies": [
+          {
+            "kind": "tableCellByRowLabel",
+            "labelText": "New Account Number"
+          }
+        ]
+      },
+      "outputName": "new_account_number",
+      "transform": "trim",
+      "description": "Read the newly created account number off the success screen"
+    }
+  ],
+  "provenance": {
+    "recordedAt": "2026-09-27T20:30:01.320Z",
+    "discoveryRunId": "Nl9NaQHl",
+    "model": "inclusionai/ling-3.0-flash-fin:free",
+    "reviewedBy": "demo-reviewer",
+    "approval": {
+      "approvedAt": "2026-10-10T20:17:43.230Z",
+      "unattendedIrreversible": false,
+      "evidence": {
+        "runs": 10,
+        "confidence": 0.722,
+        "mode": "rehearsal"
+      }
+    }
+  }
+}

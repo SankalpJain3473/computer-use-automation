@@ -1,0 +1,6 @@
+{
+  "status": "business_outcome",
+  "code": "PERMISSION_DENIED",
+  "description": "This teller role is not authorized to view a restricted member",
+  "stepsExecuted": 3
+}

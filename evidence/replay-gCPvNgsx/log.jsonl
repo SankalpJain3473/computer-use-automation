@@ -1,0 +1,16 @@
+{"ts":"2026-09-27T20:31:22.966Z","event":"replay.start","capability":"open_member_subaccount","version":1,"params":{"memberId":"*3456","initialDeposit":"5.00"}}
+{"ts":"2026-09-27T20:31:23.216Z","event":"operator.available","url":"http://localhost:4174"}
+{"ts":"2026-09-27T20:31:23.217Z","event":"replay.step.start","stepIndex":0,"type":"fill","description":"Enter member ID *3456 to look up the member"}
+{"ts":"2026-09-27T20:31:23.229Z","event":"replay.step.ok","stepIndex":0}
+{"ts":"2026-09-27T20:31:23.229Z","event":"replay.step.start","stepIndex":1,"type":"click","description":"Click Look Up Member to search"}
+{"ts":"2026-09-27T20:31:23.773Z","event":"replay.step.ok","stepIndex":1}
+{"ts":"2026-09-27T20:31:23.774Z","event":"replay.step.start","stepIndex":2,"type":"checkOutcomes","description":"Distinguish a normal member record from known non-happy-path outcomes"}
+{"ts":"2026-09-27T20:31:23.775Z","event":"replay.step.ok","stepIndex":2}
+{"ts":"2026-09-27T20:31:23.775Z","event":"replay.step.start","stepIndex":3,"type":"click","description":"Open a new sub-account for this member"}
+{"ts":"2026-09-27T20:31:24.338Z","event":"replay.step.ok","stepIndex":3}
+{"ts":"2026-09-27T20:31:24.338Z","event":"replay.step.start","stepIndex":4,"type":"fill","description":"Enter initial deposit of $60.00"}
+{"ts":"2026-09-27T20:31:24.364Z","event":"replay.step.ok","stepIndex":4}
+{"ts":"2026-09-27T20:31:24.364Z","event":"replay.step.start","stepIndex":5,"type":"click","description":"Click Continue to proceed"}
+{"ts":"2026-09-27T20:31:24.927Z","event":"replay.step.ok","stepIndex":5}
+{"ts":"2026-09-27T20:31:24.928Z","event":"replay.step.start","stepIndex":6,"type":"checkOutcomes","description":"Distinguish a validation error from a successful transition to the confirmation screen"}
+{"ts":"2026-09-27T20:31:24.929Z","event":"replay.business_outcome","stepIndex":6,"code":"VALIDATION_ERROR"}

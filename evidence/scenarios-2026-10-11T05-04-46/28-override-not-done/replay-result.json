@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "stepIndex": 6,
+  "stepDescription": "Distinguish a validation error from a successful transition to the confirmation screen",
+  "expected": "happy path continuation",
+  "observed": "Control came back but \"SUPERVISOR_OVERRIDE\" still needs doing",
+  "errorCode": "HUMAN_TASK_INCOMPLETE",
+  "message": "Control came back but \"SUPERVISOR_OVERRIDE\" still needs doing"
+}

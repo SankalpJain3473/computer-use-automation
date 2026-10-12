@@ -1,0 +1,6 @@
+{
+  "status": "business_outcome",
+  "code": "DECLINED_BY_OPERATOR",
+  "description": "Control was handed back without the irreversible step being confirmed",
+  "stepsExecuted": 8
+}

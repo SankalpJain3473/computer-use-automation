@@ -1,0 +1,22 @@
+{"ts":"2026-10-11T05:05:12.694Z","event":"replay.start","capability":"lookup_member_balance","version":3,"params":{"memberId":"*0002"}}
+{"ts":"2026-10-11T05:05:12.822Z","event":"replay.phase","phase":"pre","mode":"live"}
+{"ts":"2026-10-11T05:05:12.827Z","event":"replay.entry","url":"http://localhost:4173/members/search","status":200}
+{"ts":"2026-10-11T05:05:12.827Z","event":"replay.phase","phase":"core"}
+{"ts":"2026-10-11T05:05:12.827Z","event":"replay.step.start","stepIndex":0,"type":"fill","description":"Enter member ID {{memberId}} to look up their account"}
+{"ts":"2026-10-11T05:05:12.843Z","event":"replay.step.ok","stepIndex":0}
+{"ts":"2026-10-11T05:05:12.843Z","event":"replay.step.start","stepIndex":1,"type":"click","description":"Click Look Up Member to retrieve member {{memberId}}'s account information"}
+{"ts":"2026-10-11T05:05:13.402Z","event":"replay.step.ok","stepIndex":1}
+{"ts":"2026-10-11T05:05:13.402Z","event":"replay.step.start","stepIndex":2,"type":"checkOutcomes","description":"Check the member record loaded"}
+{"ts":"2026-10-11T05:05:13.403Z","event":"replay.recovery_attempt","stepIndex":2,"code":"CORE_TIMEOUT","attempt":1,"action":"reload"}
+{"ts":"2026-10-11T05:05:14.424Z","event":"replay.recovery_attempt","stepIndex":2,"code":"CORE_TIMEOUT","attempt":2,"action":"reload"}
+{"ts":"2026-10-11T05:05:15.441Z","event":"replay.recovery_exhausted_escalate","stepIndex":2,"code":"CORE_TIMEOUT"}
+{"ts":"2026-10-11T05:05:15.500Z","event":"intervention.requested","id":"7WjX2uc1","runId":"KTeb5Xry","kind":"fault","createdAt":"2026-10-11T05:05:15.499Z","timeoutAt":"2026-10-11T05:20:15.500Z","status":"open","capabilityName":"lookup_member_balance","goal":"Replay of lookup_member_balance","stepIndex":2,"reason":"\"CORE_TIMEOUT\" (Core banking service timed out loading the member record) did not clear after 2 automatic retries. Fix it on the page, then resume.","screenshotFile":"/Users/sankalpjain/Desktop/interface/evidence/scenarios-2026-10-11T05-04-46/12-exhausted-human-fixes/intervention-2.png","humanActions":[]}
+{"ts":"2026-10-11T05:05:15.581Z","event":"intervention.human_action","type":"click","ref":"e1","label":"Retry"}
+{"ts":"2026-10-11T05:05:15.602Z","event":"intervention.resumed","id":"7WjX2uc1","decision":"continue"}
+{"ts":"2026-10-11T05:05:15.602Z","event":"replay.recovery_resolved_by_human","stepIndex":2,"code":"CORE_TIMEOUT"}
+{"ts":"2026-10-11T05:05:15.602Z","event":"replay.step.ok","stepIndex":2}
+{"ts":"2026-10-11T05:05:15.602Z","event":"replay.step.start","stepIndex":3,"type":"extract","description":"Extract member {{memberId}}'s savings balance"}
+{"ts":"2026-10-11T05:05:15.604Z","event":"replay.step.ok","stepIndex":3}
+{"ts":"2026-10-11T05:05:15.605Z","event":"replay.step.start","stepIndex":4,"type":"extract","description":"Extract member {{memberId}}'s checking balance"}
+{"ts":"2026-10-11T05:05:15.606Z","event":"replay.step.ok","stepIndex":4}
+{"ts":"2026-10-11T05:05:15.606Z","event":"replay.phase","phase":"post"}

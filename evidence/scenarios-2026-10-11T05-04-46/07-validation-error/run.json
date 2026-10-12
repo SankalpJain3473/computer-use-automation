@@ -1,0 +1,87 @@
+{
+  "runId": "tsUjWlna",
+  "kind": "replay",
+  "capability": "open_member_subaccount",
+  "version": 2,
+  "mode": "live",
+  "invokedBy": "scenario",
+  "params": {
+    "memberId": "*3456",
+    "initialDeposit": "5.00"
+  },
+  "state": "BUSINESS_OUTCOME",
+  "controller": "automation",
+  "transitions": [
+    {
+      "from": null,
+      "to": "INITIALIZED",
+      "at": "2026-10-11T05:04:53.581Z"
+    },
+    {
+      "from": "INITIALIZED",
+      "to": "RUNNING",
+      "at": "2026-10-11T05:04:53.707Z"
+    },
+    {
+      "from": "RUNNING",
+      "to": "BUSINESS_OUTCOME",
+      "at": "2026-10-11T05:04:55.429Z",
+      "reason": "VALIDATION_ERROR"
+    }
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "type": "fill",
+      "startedAt": "2026-10-11T05:04:53.711Z",
+      "durationMs": 11
+    },
+    {
+      "index": 1,
+      "type": "click",
+      "startedAt": "2026-10-11T05:04:53.722Z",
+      "durationMs": 545
+    },
+    {
+      "index": 2,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-11T05:04:54.268Z",
+      "durationMs": 17
+    },
+    {
+      "index": 3,
+      "type": "click",
+      "startedAt": "2026-10-11T05:04:54.285Z",
+      "durationMs": 541
+    },
+    {
+      "index": 4,
+      "type": "fill",
+      "startedAt": "2026-10-11T05:04:54.827Z",
+      "durationMs": 24
+    },
+    {
+      "index": 5,
+      "type": "click",
+      "startedAt": "2026-10-11T05:04:54.852Z",
+      "durationMs": 548
+    },
+    {
+      "index": 6,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-11T05:04:55.400Z"
+    }
+  ],
+  "interventions": [],
+  "startedAt": "2026-10-11T05:04:53.581Z",
+  "evidenceDir": "/Users/sankalpjain/Desktop/interface/evidence/scenarios-2026-10-11T05-04-46/07-validation-error",
+  "phase": "core",
+  "result": {
+    "status": "business_outcome",
+    "code": "VALIDATION_ERROR",
+    "description": "Initial deposit did not meet the minimum required amount",
+    "stepsExecuted": 7
+  },
+  "endedAt": "2026-10-11T05:04:55.429Z",
+  "durationMs": 1848
+}

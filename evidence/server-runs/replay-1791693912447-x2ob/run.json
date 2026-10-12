@@ -1,0 +1,124 @@
+{
+  "runId": "sapZrDEj",
+  "kind": "replay",
+  "capability": "open_member_subaccount",
+  "version": 2,
+  "mode": "live",
+  "invokedBy": "agent",
+  "idempotencyKey": "walkthrough-open-1",
+  "params": {
+    "memberId": "*3456",
+    "initialDeposit": "40.00"
+  },
+  "state": "COMPLETED",
+  "controller": "automation",
+  "transitions": [
+    {
+      "from": null,
+      "to": "INITIALIZED",
+      "at": "2026-10-11T04:45:12.447Z"
+    },
+    {
+      "from": "INITIALIZED",
+      "to": "RUNNING",
+      "at": "2026-10-11T04:45:12.569Z"
+    },
+    {
+      "from": "RUNNING",
+      "to": "AWAITING_HUMAN",
+      "at": "2026-10-11T04:45:14.322Z",
+      "reason": "Irreversible step requires human confirmation: Confirm opening the new sub-account - irreversible from this screen"
+    },
+    {
+      "from": "AWAITING_HUMAN",
+      "to": "RUNNING",
+      "at": "2026-10-11T04:45:14.385Z",
+      "reason": "handed back to automation"
+    },
+    {
+      "from": "RUNNING",
+      "to": "COMPLETED",
+      "at": "2026-10-11T04:45:14.409Z"
+    }
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "type": "fill",
+      "startedAt": "2026-10-11T04:45:12.573Z",
+      "durationMs": 10
+    },
+    {
+      "index": 1,
+      "type": "click",
+      "startedAt": "2026-10-11T04:45:12.583Z",
+      "durationMs": 548
+    },
+    {
+      "index": 2,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-11T04:45:13.132Z",
+      "durationMs": 20
+    },
+    {
+      "index": 3,
+      "type": "click",
+      "startedAt": "2026-10-11T04:45:13.153Z",
+      "durationMs": 539
+    },
+    {
+      "index": 4,
+      "type": "fill",
+      "startedAt": "2026-10-11T04:45:13.692Z",
+      "durationMs": 18
+    },
+    {
+      "index": 5,
+      "type": "click",
+      "startedAt": "2026-10-11T04:45:13.710Z",
+      "durationMs": 554
+    },
+    {
+      "index": 6,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-11T04:45:14.264Z",
+      "durationMs": 19
+    },
+    {
+      "index": 7,
+      "type": "confirmIrreversible",
+      "startedAt": "2026-10-11T04:45:14.284Z",
+      "durationMs": 104
+    },
+    {
+      "index": 8,
+      "type": "extract",
+      "startedAt": "2026-10-11T04:45:14.388Z",
+      "durationMs": 2
+    }
+  ],
+  "interventions": [
+    {
+      "id": "O8Et5rmU",
+      "kind": "policy",
+      "stepIndex": 7,
+      "reason": "Irreversible step requires human confirmation: Confirm opening the new sub-account - irreversible from this screen",
+      "openedAt": "2026-10-11T04:45:14.322Z",
+      "humanActions": 1,
+      "resolvedAt": "2026-10-11T04:45:14.385Z",
+      "decision": "continue"
+    }
+  ],
+  "startedAt": "2026-10-11T04:45:12.447Z",
+  "evidenceDir": "/Users/sankalpjain/Desktop/interface/evidence/server-runs/replay-*********2447x2ob",
+  "phase": "post",
+  "result": {
+    "status": "success",
+    "outputs": {
+      "new_account_number": "**0005"
+    },
+    "stepsExecuted": 9
+  },
+  "endedAt": "2026-10-11T04:45:14.409Z",
+  "durationMs": 1962
+}

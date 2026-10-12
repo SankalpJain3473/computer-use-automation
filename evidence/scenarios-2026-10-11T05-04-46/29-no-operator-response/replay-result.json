@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "stepIndex": 7,
+  "stepDescription": "Confirm opening the new sub-account - irreversible from this screen",
+  "expected": "an operator to confirm or decline",
+  "observed": "no operator responded in time; nothing was confirmed",
+  "errorCode": "OPERATOR_TIMEOUT",
+  "message": "no operator responded in time; nothing was confirmed"
+}

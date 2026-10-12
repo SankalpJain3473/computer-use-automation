@@ -1,0 +1,71 @@
+{
+  "runId": "_atYmqQq",
+  "kind": "replay",
+  "capability": "lookup_member_balance",
+  "version": 3,
+  "mode": "live",
+  "invokedBy": "scenario",
+  "params": {
+    "memberId": "*2345"
+  },
+  "state": "FAILED",
+  "controller": "automation",
+  "transitions": [
+    {
+      "from": null,
+      "to": "INITIALIZED",
+      "at": "2026-10-11T05:05:19.254Z"
+    },
+    {
+      "from": "INITIALIZED",
+      "to": "RUNNING",
+      "at": "2026-10-11T05:05:19.372Z"
+    },
+    {
+      "from": "RUNNING",
+      "to": "FAILED",
+      "at": "2026-10-11T05:05:19.978Z",
+      "reason": "LOCATOR_NOT_FOUND"
+    }
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "type": "fill",
+      "startedAt": "2026-10-11T05:05:19.376Z",
+      "durationMs": 10
+    },
+    {
+      "index": 1,
+      "type": "click",
+      "startedAt": "2026-10-11T05:05:19.386Z",
+      "durationMs": 547
+    },
+    {
+      "index": 2,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-11T05:05:19.934Z",
+      "durationMs": 21
+    },
+    {
+      "index": 3,
+      "type": "extract",
+      "startedAt": "2026-10-11T05:05:19.956Z"
+    }
+  ],
+  "interventions": [],
+  "startedAt": "2026-10-11T05:05:19.254Z",
+  "evidenceDir": "/Users/sankalpjain/Desktop/interface/evidence/scenarios-2026-10-11T05-04-46/15-drift-beyond-fallbacks",
+  "phase": "core",
+  "result": {
+    "status": "failure",
+    "stepIndex": 3,
+    "stepDescription": "Extract member {{memberId}}'s savings balance",
+    "expected": "exactly one match for the recorded locator strategies",
+    "observed": "[{\"strategy\":{\"kind\":\"tableCellByRowLabel\",\"labelText\":\"Savings Balance\"},\"matchCount\":0}]",
+    "errorCode": "LOCATOR_NOT_FOUND",
+    "message": "Could not uniquely resolve locator after trying 1 strategies"
+  },
+  "endedAt": "2026-10-11T05:05:19.978Z",
+  "durationMs": 724
+}

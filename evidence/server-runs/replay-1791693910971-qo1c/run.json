@@ -1,0 +1,77 @@
+{
+  "runId": "Y3GaqX8F",
+  "kind": "replay",
+  "capability": "lookup_member_balance",
+  "version": 3,
+  "mode": "live",
+  "invokedBy": "agent",
+  "idempotencyKey": "walkthrough-1",
+  "params": {
+    "memberId": "*2345"
+  },
+  "state": "COMPLETED",
+  "controller": "automation",
+  "transitions": [
+    {
+      "from": null,
+      "to": "INITIALIZED",
+      "at": "2026-10-11T04:45:10.973Z"
+    },
+    {
+      "from": "INITIALIZED",
+      "to": "RUNNING",
+      "at": "2026-10-11T04:45:11.106Z"
+    },
+    {
+      "from": "RUNNING",
+      "to": "COMPLETED",
+      "at": "2026-10-11T04:45:11.712Z"
+    }
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "type": "fill",
+      "startedAt": "2026-10-11T04:45:11.110Z",
+      "durationMs": 14
+    },
+    {
+      "index": 1,
+      "type": "click",
+      "startedAt": "2026-10-11T04:45:11.124Z",
+      "durationMs": 545
+    },
+    {
+      "index": 2,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-11T04:45:11.669Z",
+      "durationMs": 20
+    },
+    {
+      "index": 3,
+      "type": "extract",
+      "startedAt": "2026-10-11T04:45:11.690Z",
+      "durationMs": 5
+    },
+    {
+      "index": 4,
+      "type": "extract",
+      "startedAt": "2026-10-11T04:45:11.696Z",
+      "durationMs": 2
+    }
+  ],
+  "interventions": [],
+  "startedAt": "2026-10-11T04:45:10.973Z",
+  "evidenceDir": "/Users/sankalpjain/Desktop/interface/evidence/server-runs/replay-*********0971qo1c",
+  "phase": "post",
+  "result": {
+    "status": "success",
+    "outputs": {
+      "savings_balance": "$4,823.10",
+      "checking_balance": "$1,210.55"
+    },
+    "stepsExecuted": 5
+  },
+  "endedAt": "2026-10-11T04:45:11.712Z",
+  "durationMs": 739
+}

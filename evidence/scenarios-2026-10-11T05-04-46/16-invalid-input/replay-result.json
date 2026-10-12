@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "stepIndex": -1,
+  "stepDescription": "input validation",
+  "expected": "all required parameters present and well-formed",
+  "observed": "Input parameter \"memberId\" does not match required pattern ^\\d+$",
+  "errorCode": "INVALID_PARAMS",
+  "message": "Input parameter \"memberId\" does not match required pattern ^\\d+$"
+}

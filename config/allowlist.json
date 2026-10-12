@@ -1,0 +1,12 @@
+{
+  "allowedOrigins": ["http://localhost:4173", "http://localhost:4198", "http://localhost:4199"],
+  "allowedActionTypes": ["navigate", "click", "fill", "selectOption", "extract", "checkOutcomes", "assertCheckpoint", "confirmIrreversible"],
+  "riskyActionMarkers": {
+    "confirmIrreversible": true
+  },
+  "approvalPolicy": {
+    "minRuns": 8,
+    "minConfidence": 0.7
+  },
+  "notes": "4198/4199 are the test suite's target-app ports. Agents (the capability server) may only invoke approved artifact versions; approval requires minRuns replays whose Wilson 95% lower-bound success rate is >= minConfidence. An approved risky capability still pauses for a human at every irreversible step unless approval.unattendedIrreversible is explicitly granted. See src/guardrails/policy.ts."
+}

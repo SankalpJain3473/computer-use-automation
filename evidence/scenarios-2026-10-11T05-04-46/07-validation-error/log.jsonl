@@ -1,0 +1,18 @@
+{"ts":"2026-10-11T05:04:53.582Z","event":"replay.start","capability":"open_member_subaccount","version":2,"params":{"memberId":"*3456","initialDeposit":"5.00"}}
+{"ts":"2026-10-11T05:04:53.706Z","event":"replay.phase","phase":"pre","mode":"live"}
+{"ts":"2026-10-11T05:04:53.711Z","event":"replay.entry","url":"http://localhost:4173/members/search","status":200}
+{"ts":"2026-10-11T05:04:53.711Z","event":"replay.phase","phase":"core"}
+{"ts":"2026-10-11T05:04:53.711Z","event":"replay.step.start","stepIndex":0,"type":"fill","description":"Enter member ID {{memberId}} to look up the member"}
+{"ts":"2026-10-11T05:04:53.721Z","event":"replay.step.ok","stepIndex":0}
+{"ts":"2026-10-11T05:04:53.722Z","event":"replay.step.start","stepIndex":1,"type":"click","description":"Click Look Up Member to search"}
+{"ts":"2026-10-11T05:04:54.267Z","event":"replay.step.ok","stepIndex":1}
+{"ts":"2026-10-11T05:04:54.268Z","event":"replay.step.start","stepIndex":2,"type":"checkOutcomes","description":"Distinguish a normal member record from known non-happy-path outcomes"}
+{"ts":"2026-10-11T05:04:54.285Z","event":"replay.step.ok","stepIndex":2}
+{"ts":"2026-10-11T05:04:54.285Z","event":"replay.step.start","stepIndex":3,"type":"click","description":"Open a new sub-account for this member"}
+{"ts":"2026-10-11T05:04:54.826Z","event":"replay.step.ok","stepIndex":3}
+{"ts":"2026-10-11T05:04:54.827Z","event":"replay.step.start","stepIndex":4,"type":"fill","description":"Enter initial deposit of ${{initialDeposit}}"}
+{"ts":"2026-10-11T05:04:54.851Z","event":"replay.step.ok","stepIndex":4}
+{"ts":"2026-10-11T05:04:54.852Z","event":"replay.step.start","stepIndex":5,"type":"click","description":"Click Continue to proceed"}
+{"ts":"2026-10-11T05:04:55.399Z","event":"replay.step.ok","stepIndex":5}
+{"ts":"2026-10-11T05:04:55.400Z","event":"replay.step.start","stepIndex":6,"type":"checkOutcomes","description":"Distinguish a validation error from a successful transition to the confirmation screen"}
+{"ts":"2026-10-11T05:04:55.402Z","event":"replay.business_outcome","stepIndex":6,"code":"VALIDATION_ERROR"}

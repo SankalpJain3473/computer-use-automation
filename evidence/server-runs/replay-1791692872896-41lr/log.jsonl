@@ -1,0 +1,23 @@
+{"ts":"2026-10-11T04:27:52.896Z","event":"replay.start","capability":"open_member_subaccount","version":2,"params":{"memberId":"*3456","initialDeposit":"30.00"}}
+{"ts":"2026-10-11T04:27:53.015Z","event":"replay.phase","phase":"pre","mode":"live"}
+{"ts":"2026-10-11T04:27:53.019Z","event":"replay.entry","url":"http://localhost:4173/members/search","status":200}
+{"ts":"2026-10-11T04:27:53.020Z","event":"replay.phase","phase":"core"}
+{"ts":"2026-10-11T04:27:53.020Z","event":"replay.step.start","stepIndex":0,"type":"fill","description":"Enter member ID {{memberId}} to look up the member"}
+{"ts":"2026-10-11T04:27:53.031Z","event":"replay.step.ok","stepIndex":0}
+{"ts":"2026-10-11T04:27:53.031Z","event":"replay.step.start","stepIndex":1,"type":"click","description":"Click Look Up Member to search"}
+{"ts":"2026-10-11T04:27:53.585Z","event":"replay.step.ok","stepIndex":1}
+{"ts":"2026-10-11T04:27:53.585Z","event":"replay.step.start","stepIndex":2,"type":"checkOutcomes","description":"Distinguish a normal member record from known non-happy-path outcomes"}
+{"ts":"2026-10-11T04:27:53.604Z","event":"replay.step.ok","stepIndex":2}
+{"ts":"2026-10-11T04:27:53.604Z","event":"replay.step.start","stepIndex":3,"type":"click","description":"Open a new sub-account for this member"}
+{"ts":"2026-10-11T04:27:54.142Z","event":"replay.step.ok","stepIndex":3}
+{"ts":"2026-10-11T04:27:54.144Z","event":"replay.step.start","stepIndex":4,"type":"fill","description":"Enter initial deposit of ${{initialDeposit}}"}
+{"ts":"2026-10-11T04:27:54.168Z","event":"replay.step.ok","stepIndex":4}
+{"ts":"2026-10-11T04:27:54.168Z","event":"replay.step.start","stepIndex":5,"type":"click","description":"Click Continue to proceed"}
+{"ts":"2026-10-11T04:27:54.715Z","event":"replay.step.ok","stepIndex":5}
+{"ts":"2026-10-11T04:27:54.716Z","event":"replay.step.start","stepIndex":6,"type":"checkOutcomes","description":"Distinguish a validation error from a successful transition to the confirmation screen"}
+{"ts":"2026-10-11T04:27:54.734Z","event":"replay.step.ok","stepIndex":6}
+{"ts":"2026-10-11T04:27:54.735Z","event":"replay.step.start","stepIndex":7,"type":"confirmIrreversible","description":"Confirm opening the new sub-account - irreversible from this screen"}
+{"ts":"2026-10-11T04:27:54.738Z","event":"replay.escalate_confirm","stepIndex":7,"description":"Confirm opening the new sub-account - irreversible from this screen"}
+{"ts":"2026-10-11T04:27:54.774Z","event":"intervention.requested","id":"1g2sGDcG","runId":"tAHH7hk9","kind":"policy","createdAt":"2026-10-11T04:27:54.774Z","status":"open","capabilityName":"open_member_subaccount","goal":"Replay of open_member_subaccount","stepIndex":7,"reason":"Irreversible step requires human confirmation: Confirm opening the new sub-account - irreversible from this screen","screenshotFile":"/Users/sankalpjain/Desktop/interface/evidence/server-runs/replay-*********289641lr/intervention-7.png","humanActions":[]}
+{"ts":"2026-10-11T04:27:54.777Z","event":"intervention.resumed","id":"1g2sGDcG","decision":"decline"}
+{"ts":"2026-10-11T04:27:54.779Z","event":"replay.declined_by_operator","stepIndex":7,"decision":"decline","stillUnconfirmed":true}

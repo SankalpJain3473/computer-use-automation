@@ -1,0 +1,6 @@
+{
+  "status": "business_outcome",
+  "code": "DECLINED_BY_OPERATOR",
+  "description": "A human operator reviewed the irreversible step and declined it",
+  "stepsExecuted": 8
+}

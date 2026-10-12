@@ -1,0 +1,37 @@
+{
+  "name": "computer-use-automation-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Computer-use automation system: LLM discovery -> reusable artifact -> deterministic replay -> human escalation, for legacy back-office UIs with no API.",
+  "type": "module",
+  "scripts": {
+    "target-app": "tsx src/target-app/server.ts",
+    "discover": "tsx src/cli.ts discover",
+    "replay": "tsx src/cli.ts replay",
+    "stability": "tsx src/cli.ts stability",
+    "stats": "tsx src/cli.ts stats",
+    "revise": "tsx src/cli.ts revise",
+    "scenarios": "tsx scripts/scenarios.ts",
+    "approve": "tsx src/cli.ts approve",
+    "server": "tsx src/cli.ts server",
+    "agent-demo": "tsx scripts/agent-demo.ts",
+    "api-walkthrough": "node scripts/api-walkthrough.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "express": "^4.21.1",
+    "nanoid": "^5.0.9",
+    "openai": "^7.23.0",
+    "playwright": "^1.48.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.9.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  }
+}

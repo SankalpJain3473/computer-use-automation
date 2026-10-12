@@ -1,0 +1,108 @@
+{
+  "artifact": "lookup_member_balance@v3",
+  "mode": "live",
+  "runs": [
+    {
+      "i": 1,
+      "runId": "t0k5cZAm",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 767,
+      "drift": 0
+    },
+    {
+      "i": 2,
+      "runId": "LhqK7Zv1",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 747,
+      "drift": 0
+    },
+    {
+      "i": 3,
+      "runId": "rLISpJ8O",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 730,
+      "drift": 0
+    },
+    {
+      "i": 4,
+      "runId": "m-vUyBxt",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 726,
+      "drift": 0
+    },
+    {
+      "i": 5,
+      "runId": "aynrPuhs",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 731,
+      "drift": 0
+    },
+    {
+      "i": 6,
+      "runId": "cp_6XyK7",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 746,
+      "drift": 0
+    },
+    {
+      "i": 7,
+      "runId": "n_76CRGf",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 746,
+      "drift": 0
+    },
+    {
+      "i": 8,
+      "runId": "OWiUIZsR",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 726,
+      "drift": 0
+    },
+    {
+      "i": 9,
+      "runId": "TgHFfDOn",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 726,
+      "drift": 0
+    },
+    {
+      "i": 10,
+      "runId": "OR8Z-yy0",
+      "state": "COMPLETED",
+      "result": "success",
+      "ms": 744,
+      "drift": 0
+    }
+  ],
+  "cumulative": {
+    "capability": "lookup_member_balance",
+    "version": 3,
+    "runs": 10,
+    "clean": 10,
+    "businessOutcomes": 0,
+    "assisted": 0,
+    "failures": 0,
+    "callerErrors": 0,
+    "rehearsals": 0,
+    "driftRuns": 0,
+    "successRate": 1,
+    "confidence": 0.7224598312333834,
+    "band": "green",
+    "p50Ms": 731,
+    "p95Ms": 767,
+    "lastRunAt": "2026-10-11T04:41:49.512Z"
+  },
+  "policy": {
+    "minRuns": 8,
+    "minConfidence": 0.7
+  }
+}

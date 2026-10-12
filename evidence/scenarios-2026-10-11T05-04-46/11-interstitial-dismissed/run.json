@@ -1,0 +1,76 @@
+{
+  "runId": "nIMb2618",
+  "kind": "replay",
+  "capability": "lookup_member_balance",
+  "version": 3,
+  "mode": "live",
+  "invokedBy": "scenario",
+  "params": {
+    "memberId": "*0000"
+  },
+  "state": "COMPLETED",
+  "controller": "automation",
+  "transitions": [
+    {
+      "from": null,
+      "to": "INITIALIZED",
+      "at": "2026-10-11T05:05:11.398Z"
+    },
+    {
+      "from": "INITIALIZED",
+      "to": "RUNNING",
+      "at": "2026-10-11T05:05:11.519Z"
+    },
+    {
+      "from": "RUNNING",
+      "to": "COMPLETED",
+      "at": "2026-10-11T05:05:12.692Z"
+    }
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "type": "fill",
+      "startedAt": "2026-10-11T05:05:11.524Z",
+      "durationMs": 11
+    },
+    {
+      "index": 1,
+      "type": "click",
+      "startedAt": "2026-10-11T05:05:11.535Z",
+      "durationMs": 546
+    },
+    {
+      "index": 2,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-11T05:05:12.082Z",
+      "durationMs": 595
+    },
+    {
+      "index": 3,
+      "type": "extract",
+      "startedAt": "2026-10-11T05:05:12.678Z",
+      "durationMs": 2
+    },
+    {
+      "index": 4,
+      "type": "extract",
+      "startedAt": "2026-10-11T05:05:12.680Z",
+      "durationMs": 2
+    }
+  ],
+  "interventions": [],
+  "startedAt": "2026-10-11T05:05:11.398Z",
+  "evidenceDir": "/Users/sankalpjain/Desktop/interface/evidence/scenarios-2026-10-11T05-04-46/11-interstitial-dismissed",
+  "phase": "post",
+  "result": {
+    "status": "success",
+    "outputs": {
+      "savings_balance": "$3,100.50",
+      "checking_balance": "$777.00"
+    },
+    "stepsExecuted": 5
+  },
+  "endedAt": "2026-10-11T05:05:12.692Z",
+  "durationMs": 1294
+}

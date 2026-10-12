@@ -1,0 +1,9 @@
+{
+  "status": "failure",
+  "stepIndex": 2,
+  "stepDescription": "Check the member record loaded",
+  "expected": "happy path continuation",
+  "observed": "Session expired mid-flow; re-authenticate and retry",
+  "errorCode": "SESSION_EXPIRED",
+  "message": "Session expired mid-flow; re-authenticate and retry"
+}

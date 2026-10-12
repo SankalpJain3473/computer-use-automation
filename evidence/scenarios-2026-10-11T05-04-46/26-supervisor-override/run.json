@@ -1,0 +1,145 @@
+{
+  "runId": "B9uiItLT",
+  "kind": "replay",
+  "capability": "open_member_subaccount",
+  "version": 2,
+  "mode": "live",
+  "invokedBy": "scenario",
+  "params": {
+    "memberId": "*3456",
+    "initialDeposit": "15000.00"
+  },
+  "state": "COMPLETED",
+  "controller": "automation",
+  "transitions": [
+    {
+      "from": null,
+      "to": "INITIALIZED",
+      "at": "2026-10-11T05:04:57.413Z"
+    },
+    {
+      "from": "INITIALIZED",
+      "to": "RUNNING",
+      "at": "2026-10-11T05:04:57.546Z"
+    },
+    {
+      "from": "RUNNING",
+      "to": "AWAITING_HUMAN",
+      "at": "2026-10-11T05:04:59.318Z",
+      "reason": "A deposit this large needs a supervisor's override. A supervisor must enter their override PIN on this page and click Approve Override. Automation never sees or stores the PIN."
+    },
+    {
+      "from": "AWAITING_HUMAN",
+      "to": "RUNNING",
+      "at": "2026-10-11T05:04:59.469Z",
+      "reason": "handed back to automation"
+    },
+    {
+      "from": "RUNNING",
+      "to": "AWAITING_HUMAN",
+      "at": "2026-10-11T05:04:59.489Z",
+      "reason": "Irreversible step requires human confirmation: Confirm opening the new sub-account - irreversible from this screen"
+    },
+    {
+      "from": "AWAITING_HUMAN",
+      "to": "RUNNING",
+      "at": "2026-10-11T05:04:59.624Z",
+      "reason": "handed back to automation"
+    },
+    {
+      "from": "RUNNING",
+      "to": "COMPLETED",
+      "at": "2026-10-11T05:04:59.645Z"
+    }
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "type": "fill",
+      "startedAt": "2026-10-11T05:04:57.551Z",
+      "durationMs": 10
+    },
+    {
+      "index": 1,
+      "type": "click",
+      "startedAt": "2026-10-11T05:04:57.561Z",
+      "durationMs": 547
+    },
+    {
+      "index": 2,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-11T05:04:58.109Z",
+      "durationMs": 20
+    },
+    {
+      "index": 3,
+      "type": "click",
+      "startedAt": "2026-10-11T05:04:58.130Z",
+      "durationMs": 539
+    },
+    {
+      "index": 4,
+      "type": "fill",
+      "startedAt": "2026-10-11T05:04:58.670Z",
+      "durationMs": 28
+    },
+    {
+      "index": 5,
+      "type": "click",
+      "startedAt": "2026-10-11T05:04:58.699Z",
+      "durationMs": 561
+    },
+    {
+      "index": 6,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-11T05:04:59.261Z",
+      "durationMs": 209
+    },
+    {
+      "index": 7,
+      "type": "confirmIrreversible",
+      "startedAt": "2026-10-11T05:04:59.470Z",
+      "durationMs": 157
+    },
+    {
+      "index": 8,
+      "type": "extract",
+      "startedAt": "2026-10-11T05:04:59.627Z",
+      "durationMs": 2
+    }
+  ],
+  "interventions": [
+    {
+      "id": "_z5uKPBr",
+      "kind": "task",
+      "stepIndex": 6,
+      "reason": "A deposit this large needs a supervisor's override. A supervisor must enter their override PIN on this page and click Approve Override. Automation never sees or stores the PIN.",
+      "openedAt": "2026-10-11T05:04:59.318Z",
+      "humanActions": 2,
+      "resolvedAt": "2026-10-11T05:04:59.469Z",
+      "decision": "continue"
+    },
+    {
+      "id": "cmuXo8vi",
+      "kind": "policy",
+      "stepIndex": 7,
+      "reason": "Irreversible step requires human confirmation: Confirm opening the new sub-account - irreversible from this screen",
+      "openedAt": "2026-10-11T05:04:59.489Z",
+      "humanActions": 1,
+      "resolvedAt": "2026-10-11T05:04:59.624Z",
+      "decision": "continue"
+    }
+  ],
+  "startedAt": "2026-10-11T05:04:57.413Z",
+  "evidenceDir": "/Users/sankalpjain/Desktop/interface/evidence/scenarios-2026-10-11T05-04-46/26-supervisor-override",
+  "phase": "post",
+  "result": {
+    "status": "success",
+    "outputs": {
+      "new_account_number": "**0007"
+    },
+    "stepsExecuted": 9
+  },
+  "endedAt": "2026-10-11T05:04:59.645Z",
+  "durationMs": 2232
+}

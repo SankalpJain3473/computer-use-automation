@@ -1,0 +1,47 @@
+{
+  "runId": "0ddGvYao",
+  "kind": "replay",
+  "capability": "lookup_member_balance",
+  "version": 3,
+  "mode": "live",
+  "invokedBy": "scenario",
+  "params": {
+    "memberId": ""
+  },
+  "state": "FAILED",
+  "controller": "automation",
+  "transitions": [
+    {
+      "from": null,
+      "to": "INITIALIZED",
+      "at": "2026-10-11T05:05:19.981Z"
+    },
+    {
+      "from": "INITIALIZED",
+      "to": "RUNNING",
+      "at": "2026-10-11T05:05:20.101Z"
+    },
+    {
+      "from": "RUNNING",
+      "to": "FAILED",
+      "at": "2026-10-11T05:05:20.127Z",
+      "reason": "INVALID_PARAMS"
+    }
+  ],
+  "steps": [],
+  "interventions": [],
+  "startedAt": "2026-10-11T05:05:19.981Z",
+  "evidenceDir": "/Users/sankalpjain/Desktop/interface/evidence/scenarios-2026-10-11T05-04-46/16-invalid-input",
+  "phase": "pre",
+  "result": {
+    "status": "failure",
+    "stepIndex": -1,
+    "stepDescription": "input validation",
+    "expected": "all required parameters present and well-formed",
+    "observed": "Input parameter \"memberId\" does not match required pattern ^\\d+$",
+    "errorCode": "INVALID_PARAMS",
+    "message": "Input parameter \"memberId\" does not match required pattern ^\\d+$"
+  },
+  "endedAt": "2026-10-11T05:05:20.127Z",
+  "durationMs": 146
+}

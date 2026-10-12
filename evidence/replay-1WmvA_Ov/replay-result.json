@@ -1,0 +1,8 @@
+{
+  "status": "success",
+  "outputs": {
+    "savings_balance": "$7,332.00",
+    "checking_balance": "$200.00"
+  },
+  "stepsExecuted": 5
+}

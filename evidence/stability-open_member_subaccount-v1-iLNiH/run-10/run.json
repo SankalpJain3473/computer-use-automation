@@ -1,0 +1,92 @@
+{
+  "runId": "1s2gp9Zt",
+  "kind": "replay",
+  "capability": "open_member_subaccount",
+  "version": 1,
+  "mode": "rehearsal",
+  "invokedBy": "stability",
+  "params": {
+    "memberId": "*2345",
+    "initialDeposit": "50.00"
+  },
+  "state": "COMPLETED",
+  "controller": "automation",
+  "transitions": [
+    {
+      "from": null,
+      "to": "INITIALIZED",
+      "at": "2026-10-10T20:17:34.637Z"
+    },
+    {
+      "from": "INITIALIZED",
+      "to": "RUNNING",
+      "at": "2026-10-10T20:17:34.760Z"
+    },
+    {
+      "from": "RUNNING",
+      "to": "COMPLETED",
+      "at": "2026-10-10T20:17:36.525Z"
+    }
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "type": "fill",
+      "startedAt": "2026-10-10T20:17:34.764Z",
+      "durationMs": 10
+    },
+    {
+      "index": 1,
+      "type": "click",
+      "startedAt": "2026-10-10T20:17:34.778Z",
+      "durationMs": 543
+    },
+    {
+      "index": 2,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-10T20:17:35.322Z",
+      "durationMs": 0
+    },
+    {
+      "index": 3,
+      "type": "click",
+      "startedAt": "2026-10-10T20:17:35.323Z",
+      "durationMs": 563
+    },
+    {
+      "index": 4,
+      "type": "fill",
+      "startedAt": "2026-10-10T20:17:35.887Z",
+      "durationMs": 25
+    },
+    {
+      "index": 5,
+      "type": "click",
+      "startedAt": "2026-10-10T20:17:35.913Z",
+      "durationMs": 565
+    },
+    {
+      "index": 6,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-10T20:17:36.478Z",
+      "durationMs": 1
+    },
+    {
+      "index": 7,
+      "type": "confirmIrreversible",
+      "startedAt": "2026-10-10T20:17:36.479Z"
+    }
+  ],
+  "interventions": [],
+  "startedAt": "2026-10-10T20:17:34.637Z",
+  "evidenceDir": "/Users/sankalpjain/Desktop/interface/evidence/stability-open_member_subaccount-v1-iLNiH/run-10",
+  "phase": "core",
+  "result": {
+    "status": "rehearsal_complete",
+    "stoppedBeforeStep": 7,
+    "stepsExecuted": 7,
+    "confirmTargetStrategy": 0
+  },
+  "endedAt": "2026-10-10T20:17:36.525Z",
+  "durationMs": 1888
+}

@@ -1,0 +1,76 @@
+{
+  "runId": "1WmvA_Ov",
+  "kind": "replay",
+  "capability": "lookup_member_balance",
+  "version": 1,
+  "mode": "live",
+  "invokedBy": "cli",
+  "params": {
+    "memberId": "*0000"
+  },
+  "state": "COMPLETED",
+  "controller": "automation",
+  "transitions": [
+    {
+      "from": null,
+      "to": "INITIALIZED",
+      "at": "2026-10-10T20:17:57.813Z"
+    },
+    {
+      "from": "INITIALIZED",
+      "to": "RUNNING",
+      "at": "2026-10-10T20:17:57.945Z"
+    },
+    {
+      "from": "RUNNING",
+      "to": "COMPLETED",
+      "at": "2026-10-10T20:17:59.574Z"
+    }
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "type": "fill",
+      "startedAt": "2026-10-10T20:17:57.950Z",
+      "durationMs": 12
+    },
+    {
+      "index": 1,
+      "type": "click",
+      "startedAt": "2026-10-10T20:17:57.962Z",
+      "durationMs": 548
+    },
+    {
+      "index": 2,
+      "type": "checkOutcomes",
+      "startedAt": "2026-10-10T20:17:58.511Z",
+      "durationMs": 1021
+    },
+    {
+      "index": 3,
+      "type": "extract",
+      "startedAt": "2026-10-10T20:17:59.533Z",
+      "durationMs": 23
+    },
+    {
+      "index": 4,
+      "type": "extract",
+      "startedAt": "2026-10-10T20:17:59.556Z",
+      "durationMs": 2
+    }
+  ],
+  "interventions": [],
+  "startedAt": "2026-10-10T20:17:57.813Z",
+  "evidenceDir": "/Users/sankalpjain/Desktop/interface/evidence/replay-1WmvA_Ov",
+  "phase": "post",
+  "result": {
+    "status": "success",
+    "outputs": {
+      "savings_balance": "$7,332.00",
+      "checking_balance": "$200.00"
+    },
+    "stepsExecuted": 5
+  },
+  "endedAt": "2026-10-10T20:17:59.574Z",
+  "durationMs": 1761
+}

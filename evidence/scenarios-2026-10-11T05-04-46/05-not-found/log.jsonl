@@ -1,0 +1,10 @@
+{"ts":"2026-10-11T05:04:52.153Z","event":"replay.start","capability":"lookup_member_balance","version":3,"params":{"memberId":"*9999"}}
+{"ts":"2026-10-11T05:04:52.274Z","event":"replay.phase","phase":"pre","mode":"live"}
+{"ts":"2026-10-11T05:04:52.278Z","event":"replay.entry","url":"http://localhost:4173/members/search","status":200}
+{"ts":"2026-10-11T05:04:52.278Z","event":"replay.phase","phase":"core"}
+{"ts":"2026-10-11T05:04:52.278Z","event":"replay.step.start","stepIndex":0,"type":"fill","description":"Enter member ID {{memberId}} to look up their account"}
+{"ts":"2026-10-11T05:04:52.288Z","event":"replay.step.ok","stepIndex":0}
+{"ts":"2026-10-11T05:04:52.288Z","event":"replay.step.start","stepIndex":1,"type":"click","description":"Click Look Up Member to retrieve member {{memberId}}'s account information"}
+{"ts":"2026-10-11T05:04:52.836Z","event":"replay.step.ok","stepIndex":1}
+{"ts":"2026-10-11T05:04:52.837Z","event":"replay.step.start","stepIndex":2,"type":"checkOutcomes","description":"Check the member record loaded"}
+{"ts":"2026-10-11T05:04:52.838Z","event":"replay.business_outcome","stepIndex":2,"code":"MEMBER_NOT_FOUND"}

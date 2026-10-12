@@ -1,0 +1,6 @@
+{
+  "status": "business_outcome",
+  "code": "VALIDATION_ERROR",
+  "description": "Initial deposit did not meet the minimum required amount",
+  "stepsExecuted": 7
+}

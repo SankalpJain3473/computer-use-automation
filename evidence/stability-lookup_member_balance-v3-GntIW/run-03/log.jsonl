@@ -1,0 +1,15 @@
+{"ts":"2026-10-11T04:41:43.625Z","event":"replay.start","capability":"lookup_member_balance","version":3,"params":{"memberId":"*2345"}}
+{"ts":"2026-10-11T04:41:43.748Z","event":"replay.phase","phase":"pre","mode":"live"}
+{"ts":"2026-10-11T04:41:43.752Z","event":"replay.entry","url":"http://localhost:4173/members/search","status":200}
+{"ts":"2026-10-11T04:41:43.752Z","event":"replay.phase","phase":"core"}
+{"ts":"2026-10-11T04:41:43.752Z","event":"replay.step.start","stepIndex":0,"type":"fill","description":"Enter member ID {{memberId}} to look up their account"}
+{"ts":"2026-10-11T04:41:43.762Z","event":"replay.step.ok","stepIndex":0}
+{"ts":"2026-10-11T04:41:43.763Z","event":"replay.step.start","stepIndex":1,"type":"click","description":"Click Look Up Member to retrieve member {{memberId}}'s account information"}
+{"ts":"2026-10-11T04:41:44.310Z","event":"replay.step.ok","stepIndex":1}
+{"ts":"2026-10-11T04:41:44.311Z","event":"replay.step.start","stepIndex":2,"type":"checkOutcomes","description":"Check the member record loaded"}
+{"ts":"2026-10-11T04:41:44.331Z","event":"replay.step.ok","stepIndex":2}
+{"ts":"2026-10-11T04:41:44.331Z","event":"replay.step.start","stepIndex":3,"type":"extract","description":"Extract member {{memberId}}'s savings balance"}
+{"ts":"2026-10-11T04:41:44.337Z","event":"replay.step.ok","stepIndex":3}
+{"ts":"2026-10-11T04:41:44.337Z","event":"replay.step.start","stepIndex":4,"type":"extract","description":"Extract member {{memberId}}'s checking balance"}
+{"ts":"2026-10-11T04:41:44.339Z","event":"replay.step.ok","stepIndex":4}
+{"ts":"2026-10-11T04:41:44.340Z","event":"replay.phase","phase":"post"}

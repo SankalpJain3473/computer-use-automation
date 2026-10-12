@@ -1,0 +1,6 @@
+{
+  "status": "business_outcome",
+  "code": "DECLINED_BY_OPERATOR",
+  "description": "A person declined to complete a required step (SUPERVISOR_OVERRIDE)",
+  "stepsExecuted": 7
+}
