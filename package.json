@@ -5,6 +5,7 @@
   "description": "Computer-use automation system: LLM discovery -> reusable artifact -> deterministic replay -> human escalation, for legacy back-office UIs with no API.",
   "type": "module",
   "scripts": {
+    "start": "sh .devcontainer/start.sh",
     "target-app": "tsx src/target-app/server.ts",
     "discover": "tsx src/cli.ts discover",
     "replay": "tsx src/cli.ts replay",

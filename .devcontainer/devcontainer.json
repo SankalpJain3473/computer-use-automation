@@ -3,11 +3,11 @@
   "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
   "hostRequirements": { "cpus": 2, "memory": "8gb" },
   "postCreateCommand": "npm ci && npx playwright install --with-deps chromium",
-  "postStartCommand": "nohup sh .devcontainer/start.sh > /tmp/demo.log 2>&1 &",
+  "postAttachCommand": "sh .devcontainer/start.sh",
   "forwardPorts": [4180, 4173, 4174],
   "portsAttributes": {
     "4180": { "label": "Control center", "onAutoForward": "openBrowser" },
-    "4173": { "label": "Bank app (teller1 / demo)", "onAutoForward": "silent" },
+    "4173": { "label": "Bank app", "onAutoForward": "notify" },
     "4174": { "label": "Operator console (CLI runs)", "onAutoForward": "silent" }
   },
   "customizations": {

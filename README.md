@@ -23,6 +23,96 @@ goal ─▶ LLM discovery ─▶ artifact (draft) ─▶ stability runs ─▶ a
 |---|---|
 | ![Operator console](evidence/ui/operator-console-supervisor-task.png) | ![Control center](evidence/ui/control-center-inbox.png) |
 
+## Quick start
+
+There are two apps:
+
+- the **bank app**: a stand-in for a legacy core-banking teller screen (the thing being automated);
+- the **control center**: where capabilities are run, watched and handed to a person.
+
+**In the browser, nothing to install:**
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/SankalpJain3473/computer-use-automation)
+
+Click the button, then **Create codespace**. The first start takes a few
+minutes while it installs Node and Chromium. A terminal then shows both links
+and your operator key, and the control center opens in a new tab. If a link
+doesn't open, use the **Ports** tab: port **4180** is the control center, port
+**4173** the bank app. To start them again later, run `npm start`.
+
+**On your own machine** (Node 20+):
+
+```bash
+npm install
+npx playwright install chromium
+npm start
+```
+
+That starts both apps and prints the same links and key:
+http://localhost:4173 (bank app) and http://localhost:4180 (control center).
+
+## Try it
+
+### The bank app (port 4173)
+
+Sign in with username **`teller1`**, password **`demo`**. Then type a member
+ID into **Member ID** and click **Look Up Member**.
+
+| Member ID | Who | What happens |
+|---|---|---|
+| `12345` | Jordan Alvarez | Normal record: savings $4,823.10, checking $1,210.55 |
+| `23456` | Priya Natarajan | Normal record: savings $9,901.02, checking $450.12 |
+| `99999` (or any unknown ID) | none | "Member Not Found" |
+| `40000` | Restricted Account Holder | "Your teller role is not authorized to view this record" |
+| `50000`, `50001` | Sam Flake, Robin Flake | "Core banking service timed out" on the first load; reload and it works |
+| `50002` | Casey Outage | Times out three times in a row, then works |
+| `60000` | Taylor Timeout | Opening the record ends your session: "Your session has expired. Please sign in again." |
+| `80000` | Morgan Notice | A compliance notice appears first; click **Acknowledge and Continue** |
+
+To **open a sub-account**, open a member's record (e.g. `12345`), click
+**Open New Sub-Account**, choose an **Account Type** (*Savings Sub-Account*
+or *Christmas Club*), and enter an **Initial Deposit (USD)**:
+
+| Initial deposit | What happens |
+|---|---|
+| `100.00` | A confirmation screen, then **Confirm and Open Account** gives a new account number |
+| `5.00` (anything under $25) | Rejected: "Initial deposit must be a number of at least $25.00" |
+| `15000.00` ($10,000 or more) | Needs a supervisor's override: enter Supervisor PIN **`2468`** and click **Approve Override**, then confirm |
+
+Each failure above is something real teller screens do. The automation has to
+tell them apart: "member not found" is an answer, a timeout is worth a retry,
+and an expired session is a hard stop.
+
+### The control center (port 4180)
+
+Sign in with the **operator key**. The start-up terminal prints it, or run
+`cat .keys.json` and use the `operator` value.
+
+1. Under **Capabilities**, click **Run…** next to `lookup_member_balance`.
+   Enter memberId **`12345`** and click **Run**. The run appears under
+   **Runs** as *Completed* with both balances, replayed with no AI involved.
+   Try **`99999`** (*Business outcome: MEMBER_NOT_FOUND*), **`40000`**
+   (*PERMISSION_DENIED*) and **`50000`** (the timeout is retried, then
+   *Completed*).
+2. Click **Run…** next to `open_member_subaccount`, with memberId **`12345`**
+   and initialDeposit **`100.00`**. Opening an account can't be undone, so the
+   run stops and waits for a person: it appears in the **Inbox**. Click
+   **Take over**. The console shows the live bank page; click **Click** next
+   to *Confirm and Open Account*, then **Resume**. The run completes with the
+   new account number. Click **Decline** instead and the result is
+   *DECLINED_BY_OPERATOR*.
+3. The case only a person may handle: run `open_member_subaccount` with
+   initialDeposit **`15000.00`**. Take over, type **`2468`** into
+   *Supervisor PIN*, click **Fill**, click **Click** next to
+   *Approve Override*, then **Resume**. It pauses once more for the account
+   confirmation; confirm as in step 2. The PIN is never stored in any log.
+4. Click any row under **Runs** to see its state changes, step timings,
+   handoffs and result. **Agent tool definitions** at the bottom shows what an
+   AI agent is offered.
+
+Every case the system handles, with expected results, runs with
+`npm run scenarios` (see [Every case, with an example](#every-case-with-an-example)).
+
 ## Setup
 
 Requires Node 20+ and Chromium for Playwright.
@@ -217,17 +307,6 @@ scoring, artifact contract checks, and redaction.
 
 CI runs all of the above plus the scenario catalog on every push, then builds
 the deploy image, starts it, and invokes a capability through it.
-
-## Run it without installing anything
-
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/SankalpJain3473/computer-use-automation)
-
-A codespace installs everything, starts the bank app and the control center,
-and opens the control center in your browser (a few minutes the first time).
-Sign in with the operator key: run `cat .keys.json` in the codespace terminal.
-The **Ports** tab also lists the bank app (`teller1` / `demo`). Every command
-in the demo path above works in its terminal; discovery needs your own
-`OPENROUTER_API_KEY` in `.env`.
 
 ## Hosted demo
 
