@@ -232,6 +232,11 @@ app.post("/debug/skin", express.json(), (req, res) => {
 });
 
 const port = Number(process.env.TARGET_APP_PORT ?? 4173);
-app.listen(port, () => {
-  console.log(`[target-app] Meridian Teller Console listening on http://localhost:${port}`);
-});
+app
+  .listen(port, () => {
+    console.log(`[target-app] Meridian Teller Console listening on http://localhost:${port}`);
+  })
+  .on("error", (e: NodeJS.ErrnoException) => {
+    console.error(e.code === "EADDRINUSE" ? `[target-app] Port ${port} is in use; the app may already be running at http://localhost:${port}.` : e.message);
+    process.exit(1);
+  });
