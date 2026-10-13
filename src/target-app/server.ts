@@ -62,6 +62,7 @@ function requireSession(req: express.Request, res: express.Response): Session | 
   return s;
 }
 
+app.get("/", (_req, res) => res.redirect("/login"));
 app.get("/login", (_req, res) => res.send(views.loginPage()));
 
 app.post("/login", (req, res) => {
