@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: computer-use-automation
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: OPERATOR_API_KEY
+        generateValue: true
+      - key: AGENT_API_KEY
+        generateValue: true
+      - key: MAX_ACTIVE_RUNS
+        value: "1"

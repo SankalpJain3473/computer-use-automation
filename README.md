@@ -218,6 +218,17 @@ scoring, artifact contract checks, and redaction.
 CI runs all of the above plus the scenario catalog on every push, then builds
 the deploy image, starts it, and invokes a capability through it.
 
+## Run it without installing anything
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/SankalpJain3473/computer-use-automation)
+
+A codespace installs everything, starts the bank app and the control center,
+and opens the control center in your browser (a few minutes the first time).
+Sign in with the operator key: run `cat .keys.json` in the codespace terminal.
+The **Ports** tab also lists the bank app (`teller1` / `demo`). Every command
+in the demo path above works in its terminal; discovery needs your own
+`OPENROUTER_API_KEY` in `.env`.
+
 ## Hosted demo
 
 The `Dockerfile` runs the bank app and the capability server in one container
@@ -226,20 +237,13 @@ exposed. On a non-loopback host it refuses to start without
 `AGENT_API_KEY` and `OPERATOR_API_KEY`, so keys are never generated where
 nobody can read them.
 
-Every push to `main` deploys to a free Hugging Face Space
-(`.github/workflows/deploy.yml`). One-time setup:
-
-1. Create a Space at huggingface.co/new-space with SDK **Docker** (blank template).
-2. In the Space's **Settings → Variables and secrets**, add the secrets
-   `OPERATOR_API_KEY` and `AGENT_API_KEY` (any long random strings).
-3. In this GitHub repo's **Settings → Secrets and variables → Actions**, add the
-   secret `HF_TOKEN` (a Hugging Face token with write access) and the variable
-   `HF_SPACE` (`<hf-username>/<space-name>`).
-
-Open the Space at `https://<hf-username>-<space-name>.hf.space` (the direct
-URL, not the embedded page, so the sign-in cookie works) and sign in with the
-operator key. Discovery isn't run there; it needs an LLM key and is shown by
-the evidence in this repo.
+`render.yaml` deploys it to Render's free tier, redeploying on every push:
+**New → Blueprint** on render.com, pick this repository, and apply. Render
+generates both keys; the operator key is under the service's
+**Environment** tab. The free tier has 512 MB of memory and sleeps after 15
+idle minutes, so the first request after a pause is slow and runs are limited
+to one at a time. Discovery isn't run there; it needs an LLM key and is shown
+by the evidence in this repo.
 
 ## Layout
 
